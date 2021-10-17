@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/start">
+
+    <fragment
+        android:id="@+id/start"
+        android:name="com.example.s205354_lykkehjulet.Start"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/nextFrag"
+            app:destination="@id/regler" />
+    </fragment>
+    <fragment
+        android:id="@+id/regler"
+        android:name="com.example.s205354_lykkehjulet.Regler"
+        android:label="fragment_regler"
+        tools:layout="@layout/fragment_regler" />
+</navigation>
