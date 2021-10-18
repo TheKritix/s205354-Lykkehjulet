@@ -50,9 +50,7 @@ class Start : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.startButton.setOnClickListener{
-            val nextAction = StartDirections.nextFrag()
-
-            Navigation.findNavController(it).navigate(nextAction)
+            Navigation.findNavController(it).navigate(StartDirections.nextFrag())
         }
 
 
