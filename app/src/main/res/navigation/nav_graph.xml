@@ -18,5 +18,31 @@
         android:id="@+id/regler"
         android:name="com.example.s205354_lykkehjulet.Regler"
         android:label="fragment_regler"
-        tools:layout="@layout/fragment_regler" />
+        tools:layout="@layout/fragment_regler" >
+        <action
+            android:id="@+id/action_regler_to_lykkehjulSpil"
+            app:destination="@id/lykkehjulSpil" />
+    </fragment>
+    <fragment
+        android:id="@+id/lykkehjulSpil"
+        android:name="com.example.s205354_lykkehjulet.LykkehjulSpil"
+        android:label="fragment_lykkehjul_spil"
+        tools:layout="@layout/fragment_lykkehjul_spil" >
+        <action
+            android:id="@+id/action_lykkehjulSpil_to_spilVundet"
+            app:destination="@id/spilVundet" />
+        <action
+            android:id="@+id/action_lykkehjulSpil_to_spilTabt"
+            app:destination="@id/spilTabt" />
+    </fragment>
+    <fragment
+        android:id="@+id/spilVundet"
+        android:name="com.example.s205354_lykkehjulet.spilVundet"
+        android:label="fragment_spil_vundet"
+        tools:layout="@layout/fragment_spil_vundet" />
+    <fragment
+        android:id="@+id/spilTabt"
+        android:name="com.example.s205354_lykkehjulet.spilTabt"
+        android:label="fragment_spil_tabt"
+        tools:layout="@layout/fragment_spil_tabt" />
 </navigation>
