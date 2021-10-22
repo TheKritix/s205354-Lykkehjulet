@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Ord man skal gætte til Lykkehjulspillet-->
+<resources>
+    <string-array name="ord">
+        <item>ged</item>
+        <item>saddel</item>
+        <item>kanin</item>
+        <item>pære</item>
+        <item>æbleskrald</item>
+        <item>lokomotiv</item>
+        <item>anker</item>
+        <item>dejskraber</item>
+        <item>vase</item>
+        <item>mobiltelefon</item>
+        <item>tastatur</item>
+        <item>skærm</item>
+        <item>skråvæg</item>
+        <item>dørhåndtag</item>
+        <item>radiator</item>
+        <item>lampe</item>
+        <item>trægulv</item>
+        <item>mørke</item>
+        <item>handske</item>
+    </string-array>
+</resources>

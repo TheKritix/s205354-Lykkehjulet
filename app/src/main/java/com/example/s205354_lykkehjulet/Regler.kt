@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.s205354_lykkehjulet.databinding.FragmentReglerBinding
-import com.example.s205354_lykkehjulet.databinding.FragmentStartBinding
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

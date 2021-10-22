@@ -2,9 +2,15 @@ package com.example.s205354_lykkehjulet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.s205354_lykkehjulet.databinding.FragmentLykkehjulSpilBinding
+import com.example.s205354_lykkehjulet.adapter.ItemAdapter
+import com.example.s205354_lykkehjulet.databinding.FragmentReglerBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +27,12 @@ class LykkehjulSpil : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var _binding: FragmentLykkehjulSpilBinding? = null;
+
+    private val binding get() = _binding!!
+
+    private lateinit var recyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -32,10 +44,23 @@ class LykkehjulSpil : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View?{
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lykkehjul_spil, container, false)
+        _binding = FragmentLykkehjulSpilBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = binding.LykkehjulRecycler
+        recyclerView.apply {
+           recyclerView.layoutManager = LinearLayoutManager(context)
+           recyclerView.adapter = ItemAdapter()
+        }
+    }
+
+
 
     companion object {
         /**
