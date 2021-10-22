@@ -4,17 +4,24 @@ import java.util.*
 
 class SpilData {
 
+    //Spiller liv
     private val spillerLiv = 5
+
+    //Spiller point
     private val spillerPoint = 0
+
+    //Størelsen på antalet af mulige ting man kan lande på i lykkehjulet
+    private var lykkehjulSize = 24
 
     fun getSpillerLiv(): Int {return spillerLiv}
     fun getSpillerPoint(): Int {return spillerPoint}
+    fun getLykkehjulSize(): Int {return lykkehjulSize}
 
-    //Random funktion mellem 1 og 24
-    fun ranTal(): Int {
+    //Random funktion mellem 1 og x
+    fun ranTal(maks: Int): Int {
         val randomTal = Random()
 
-        return randomTal.nextInt(1-24)+24
+        return randomTal.nextInt(1-maks)+maks
     }
     //Mulighederne på lykkehjulet
     fun lykkehjul(num: Int) {

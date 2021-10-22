@@ -1,8 +1,11 @@
 package com.example.s205354_lykkehjulet
 
+import android.content.Context
+import android.util.Log
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.runner.manipulation.Ordering
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -13,5 +16,13 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun spilControllerTest(){
+
+        val ord = "Test"
+        val spil = SpilController()
+        assertEquals(spil.gemOrd(ord).length, ord.length)
     }
 }
