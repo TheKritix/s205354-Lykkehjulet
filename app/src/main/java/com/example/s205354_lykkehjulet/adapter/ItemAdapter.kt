@@ -31,6 +31,6 @@ class ItemAdapter :
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return 1
     }
 }

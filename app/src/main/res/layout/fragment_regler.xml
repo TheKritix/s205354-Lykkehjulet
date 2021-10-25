@@ -6,58 +6,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:animationCache="false"
-    android:background="#978D8D"
+    android:background="#C0CEDC"
     tools:context=".Regler">
-
-    <TextView
-        android:id="@+id/regel4"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="@string/regel4"
-        android:textColor="#212121"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
-
-    <TextView
-        android:id="@+id/regel1"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="@string/regel1"
-        android:textColor="#212121"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131" />
-
-    <TextView
-        android:id="@+id/regel9"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="@string/regel9"
-        android:textColor="#212121"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
 
     <TextView
         android:id="@+id/regel2"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
         android:text="@string/regel2"
         android:textColor="#212121"
         android:textSize="18sp"
@@ -67,57 +23,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
-
-    <TextView
-        android:id="@+id/regel8"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="@string/regel8"
-        android:textColor="#212121"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
-
-    <TextView
-        android:id="@+id/regel11"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="@string/regel11"
-        android:textColor="#212121"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826" />
-
-    <TextView
-        android:id="@+id/regel7"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="@string/regel7"
-        android:textColor="#212121"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559" />
+        app:layout_constraintVertical_bias="0.132" />
 
     <TextView
         android:id="@+id/regel10"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
         android:text="@string/regel10"
         android:textColor="#212121"
         android:textSize="18sp"
@@ -127,12 +39,61 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.778" />
+        app:layout_constraintVertical_bias="0.821" />
+
+    <TextView
+        android:id="@+id/regel4"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/regel4"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.289" />
+
+    <TextView
+        android:id="@+id/regel11"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/regel11"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
+
+    <TextView
+        android:id="@+id/regel9"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/regel9"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.713" />
 
     <TextView
         android:id="@+id/regel6"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
         android:text="@string/regel6"
         android:textColor="#212121"
         android:textSize="18sp"
@@ -142,13 +103,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.494" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <TextView
-        android:id="@+id/regel3"
+        android:id="@+id/regel7"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:text="@string/regel3"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/regel7"
         android:textColor="#212121"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -157,12 +119,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintVertical_bias="0.572" />
 
     <TextView
         android:id="@+id/regel5"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
         android:text="@string/regel5"
         android:textColor="#212121"
         android:textSize="18sp"
@@ -172,33 +135,85 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41" />
+        app:layout_constraintVertical_bias="0.403" />
+
+    <TextView
+        android:id="@+id/regel3"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/regel3"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <TextView
+        android:id="@+id/regel1"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/regel1"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.092" />
+
+    <TextView
+        android:id="@+id/regel8"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/regel8"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64" />
 
     <TextView
         android:id="@+id/regel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
         android:text="@string/regelHeader"
         android:textColor="#212121"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
-
-    <Button
-        android:id="@+id/reglerBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/confirm"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+        app:layout_constraintVertical_bias="0.023" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/reglerBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="200dp"
+        android:background="@drawable/gradient_knap"
+        android:text="@string/confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
 
     <!-- Regler -->
 
-    <string name="regelHeader">Regler.</string>
+    <string name="regelHeader">Regler</string>
     <string name="regel1">1. Kun 1 spiller kan spille ad gangen.</string>
     <string name="regel2">2. Du som spiller skal gætte et ord ud fra nogle valgte bogstaver.</string>
     <string name="regel3">3. Ordet er gemt og bogstaver bliver først vist når der bliver gættet et rigtigt bogstav.</string>
