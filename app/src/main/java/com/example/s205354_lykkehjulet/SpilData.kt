@@ -5,52 +5,74 @@ import java.util.*
 class SpilData {
 
     //Spiller liv
-    private val spillerLiv = 5
+    var spillerLiv = 5
+        get() = field
 
     //Spiller point
-    private val spillerPoint = 0
+    var spillerPoint = 0
+        get() = field
 
     //Størelsen på antalet af mulige ting man kan lande på i lykkehjulet
-    private var lykkehjulSize = 24
-
-    fun getSpillerLiv(): Int {return spillerLiv}
-    fun getSpillerPoint(): Int {return spillerPoint}
-    fun getLykkehjulSize(): Int {return lykkehjulSize}
+    private val lykkehjulSize = 24
 
     //Random funktion mellem 1 og x
     fun ranTal(maks: Int): Int {
         val randomTal = Random()
 
-        return randomTal.nextInt(1-maks)+maks
+        return randomTal.nextInt((maks+ 1 )-1) + 1
     }
     //Mulighederne på lykkehjulet
-    fun lykkehjul(num: Int) {
+    fun lykkehjul(num: Int): String{
+
+        var tempSpillerPoint = 0
+        var tempSpillerLiv = 0
 
         when(num) {
-            1 -> spillerPoint + 800
-            2 -> spillerPoint + 500
-            3 -> spillerPoint + 650
-            4 -> spillerPoint + 500
-            5 -> spillerPoint + 900
-            6 -> spillerPoint - spillerPoint
-            7 -> spillerPoint + 5000
-            8 -> spillerPoint + 500
-            9 -> spillerPoint + 600
-            10 -> spillerPoint + 700
-            11 -> spillerPoint + 600
-            12 -> spillerPoint + 650
-            13 -> spillerPoint + 500
-            14 -> spillerPoint + 700
-            15 -> spillerPoint + 500
-            16 -> spillerPoint + 600
-            17 -> spillerPoint + 550
-            18 -> spillerPoint + 500
-            19 -> spillerPoint + 600
-            20 -> spillerPoint - spillerPoint
-            21 -> spillerPoint + 650
-            22 -> spillerLiv + 1
-            23 -> spillerPoint + 700
-            24 -> spillerLiv - 1
+            1 -> tempSpillerPoint = 800
+            2 -> tempSpillerPoint = 500
+            3 -> tempSpillerPoint = 650
+            4 -> tempSpillerPoint = 500
+            5 -> tempSpillerPoint = 900
+            6 -> spillerPoint = 0
+            7 -> tempSpillerPoint = 5000
+            8 -> tempSpillerPoint = 500
+            9 -> tempSpillerPoint = 600
+            10 -> tempSpillerPoint = 700
+            11 -> tempSpillerPoint = 600
+            12 -> tempSpillerPoint = 650
+            13 -> tempSpillerPoint = 500
+            14 -> tempSpillerPoint = 700
+            15 -> tempSpillerPoint = 500
+            16 -> tempSpillerPoint = 600
+            17 -> tempSpillerPoint = 550
+            18 -> tempSpillerPoint = 500
+            19 -> tempSpillerPoint = 600
+            20 -> spillerPoint = 0
+            21 -> tempSpillerPoint = 650
+            22 -> tempSpillerLiv = 1
+            23 -> tempSpillerPoint = 700
+            24 -> tempSpillerLiv = -1
         }
+
+        spillerPoint = tempSpillerPoint + spillerPoint
+
+        spillerLiv = spillerLiv + tempSpillerLiv
+
+        if (tempSpillerLiv > 0) {
+
+            return "Du fik " + tempSpillerLiv.toString() + " liv" }
+
+        else if (tempSpillerLiv < 0 ) {
+
+            return "Du mistede " + tempSpillerLiv.toString() + " liv" }
+
+        else if (spillerPoint == 0) {
+
+            return "Du gik bankeråt" }
+
+        else  {
+
+             return "Du fik " + tempSpillerPoint.toString() + " point"}
+
     }
 }

@@ -38,31 +38,4 @@ class LykkehjuletMain : AppCompatActivity() {
     private fun setupActionBar(navController: NavController) {
         NavigationUI.setupActionBarWithNavController(this, navController)
     }
-
-
-        /**setContentView(binding.root)
-
-        binding.FragmentBTN1.setOnClickListener {
-
-            skiftFragment(Fragment1())
-        }
-
-        binding.FragmentBTN2.setOnClickListener {
-
-            skiftFragment(Fragment2())
-
-        }
     }
-
-    private fun skiftFragment(fragment: Fragment) {
-
-        val fragmentHaandtering = supportFragmentManager
-        val fragmentTransaction = fragmentHaandtering.beginTransaction()
-
-        //Bytter rundt på vores fragment og fragmentcontainer (Containeren ligger i activity_main.xml)
-        fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
-        fragmentTransaction.commit()
-    }**/
-
-
-}

@@ -2,6 +2,7 @@ package com.example.s205354_lykkehjulet
 
 import android.content.Context
 import android.content.res.Resources
+import java.lang.Exception
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -11,7 +12,7 @@ class SpilController {
 
     fun ordController() {
 
-        val pointFoar = spiller.getSpillerPoint()
+        val pointFoar = spiller.spillerPoint
 
         val ord = getRandomOrd()
 
@@ -19,16 +20,30 @@ class SpilController {
 
     }
 
-    fun drejHjullet(): Int {
-        spiller.lykkehjul(spiller.ranTal(24))
+    fun getSpillerLiv(): Int {
+        return spiller.spillerLiv
+    }
 
-        return spiller.getSpillerPoint()
+    fun getSpillerPoint(): Int {
+        return spiller.spillerPoint
+    }
+
+    fun drejHjullet(): String {
+
+        return spiller.lykkehjul(spiller.ranTal(24))
     }
 
     fun getRandomOrd(): String {
 
-        //TODO: Der skal lige spørges om det her overhovedet er ok at bruge.
-        val ord: List<String> = Resources.getSystem().getStringArray(R.array.ord).toList()
+
+
+        //try {
+            var ord: List<String> = Resources.getSystem().getStringArray(R.array.ord).toList()
+        //}
+
+        //catch (e: IllegalArgumentException) {
+            //e.printStackTrace()
+        //}
 
         return ord[spiller.ranTal(ord.size)]
     }
@@ -43,5 +58,4 @@ class SpilController {
 
         return gemtOrd
     }
-
 }

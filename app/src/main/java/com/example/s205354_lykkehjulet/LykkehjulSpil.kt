@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s205354_lykkehjulet.databinding.FragmentLykkehjulSpilBinding
 import com.example.s205354_lykkehjulet.adapter.ItemAdapter
-import com.example.s205354_lykkehjulet.databinding.FragmentReglerBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

@@ -1,6 +1,7 @@
 package com.example.s205354_lykkehjulet
 
 import android.content.Context
+import android.content.res.Resources
 import android.util.Log
 import org.junit.Test
 
@@ -23,6 +24,9 @@ class ExampleUnitTest {
 
         val ord = "Test"
         val spil = SpilController()
+        val stringTest = spil.getSpillerPoint().toString()
         assertEquals(spil.gemOrd(ord).length, ord.length)
+        assertEquals(spil.getSpillerPoint(), 0)
+        assertEquals(stringTest, "0")
     }
 }
