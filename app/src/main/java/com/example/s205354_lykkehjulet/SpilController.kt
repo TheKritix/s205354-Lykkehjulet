@@ -2,9 +2,7 @@ package com.example.s205354_lykkehjulet
 
 import android.content.Context
 import android.content.res.Resources
-import java.lang.Exception
-import java.util.*
-import kotlin.collections.HashMap
+
 
 class SpilController {
 
@@ -14,9 +12,9 @@ class SpilController {
 
         val pointFoar = spiller.spillerPoint
 
-        val ord = getRandomOrd()
+       // val ord = getRandomOrd()
 
-        var gemtOrd = gemOrd(ord)
+       // var gemtOrd = gemOrd(ord)
 
     }
 
@@ -33,19 +31,11 @@ class SpilController {
         return spiller.lykkehjul(spiller.ranTal(24))
     }
 
-    fun getRandomOrd(): String {
+    fun getRandomOrd(context: Context): String {
 
+        val ord = context.resources.getStringArray(R.array.ord).toList()
 
-
-        //try {
-            var ord: List<String> = Resources.getSystem().getStringArray(R.array.ord).toList()
-        //}
-
-        //catch (e: IllegalArgumentException) {
-            //e.printStackTrace()
-        //}
-
-        return ord[spiller.ranTal(ord.size)]
+        return ord[spiller.ranTal(ord.size-1)]
     }
 
     fun gemOrd (ord: String): String {
@@ -57,5 +47,10 @@ class SpilController {
         }
 
         return gemtOrd
+    }
+
+    fun tjekBogstav (ord: String, gemtOrd: String): String {
+
+        return ord
     }
 }

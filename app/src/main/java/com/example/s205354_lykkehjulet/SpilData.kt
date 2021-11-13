@@ -58,21 +58,13 @@ class SpilData {
 
         spillerLiv = spillerLiv + tempSpillerLiv
 
-        if (tempSpillerLiv > 0) {
+        if (tempSpillerLiv > 0) {return "Du fik " + tempSpillerLiv.toString() + " liv"}
 
-            return "Du fik " + tempSpillerLiv.toString() + " liv" }
+        else if (tempSpillerLiv < 0 ) {return "Du mistede " + tempSpillerLiv.toString() + " liv"}
 
-        else if (tempSpillerLiv < 0 ) {
+        else if (spillerPoint == 0) {return "Du gik bankeråt"}
 
-            return "Du mistede " + tempSpillerLiv.toString() + " liv" }
-
-        else if (spillerPoint == 0) {
-
-            return "Du gik bankeråt" }
-
-        else  {
-
-             return "Du fik " + tempSpillerPoint.toString() + " point"}
+        else  {return "Du fik " + tempSpillerPoint.toString() + " point"}
 
     }
 }

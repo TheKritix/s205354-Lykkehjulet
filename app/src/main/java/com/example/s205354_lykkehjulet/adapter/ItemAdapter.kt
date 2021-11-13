@@ -1,6 +1,7 @@
 package com.example.s205354_lykkehjulet.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,9 +21,11 @@ class ItemAdapter() :
 
     private val spilController = SpilController()
 
+
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val gaetKnap: Button = view.findViewById(R.id.gætKnap)
         val gaetTekstFelt: EditText = view.findViewById(R.id.gætTekstFelt)
+        val ordGuess: TextView = view.findViewById(R.id.ordGuess)
         val spinResult: TextView = view.findViewById(R.id.spinResul)
         val spinKnap: Button = view.findViewById(R.id.spinKnap)
         val hp: TextView = view.findViewById(R.id.hp)
@@ -44,17 +47,21 @@ class ItemAdapter() :
         holder.hp.text = "HP: 5"
         holder.point.text = "Point: 0"
 
+
+
         holder.spinKnap.setOnClickListener{
             holder.spinResult.text = spilController.drejHjullet()
             holder.point.text = "Point: " + spilController.getSpillerPoint()
             holder.hp.text = "HP: " + spilController.getSpillerLiv()
 
-            //val ord = spilController.getRandomOrd()
-            //holder.spinResult.text = ord
+            val ord = spilController.getRandomOrd(holder.itemView.context)
+            val gemtOrd = spilController.gemOrd(ord)
+            holder.ordGuess.text = gemtOrd
 
         }
     }
 
+    //Hvor mange gange den gentager hvad man ser. Da vi ikke har nogle elementer der skal være der mere end én gang, så sætter vi den bare til 1 her.
     override fun getItemCount(): Int {
         return 1
     }
