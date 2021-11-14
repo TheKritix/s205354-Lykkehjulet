@@ -56,7 +56,7 @@ class SpilData {
             24 -> tempSpillerLiv = -1
         }
 
-        spillerLiv = spillerLiv + tempSpillerLiv
+        skiftSpillerLiv(tempSpillerLiv)
 
         if (tempSpillerLiv > 0) {return "Du fik " + tempSpillerLiv.toString() + " liv"}
 
@@ -70,5 +70,9 @@ class SpilData {
     fun increaseSpillerPoint(){
 
         spillerPoint = spillerPoint + tempSpillerPoint
+    }
+
+    fun skiftSpillerLiv(skiftHP: Int) {
+        spillerLiv = spillerLiv + skiftHP
     }
 }

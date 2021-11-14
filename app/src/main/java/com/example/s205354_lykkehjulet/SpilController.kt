@@ -13,8 +13,6 @@ class SpilController {
 
     val spiller = SpilData()
 
-    var bogstavRigtig = false
-
     fun getSpillerLiv(): Int {
         return spiller.spillerLiv
     }
@@ -50,6 +48,7 @@ class SpilController {
 
         var gemtOrdTemp = gemtOrd
         var position: Int
+        var pointKontrol = true
 
         for (i in 0..gemtOrd.length) {
 
@@ -59,38 +58,26 @@ class SpilController {
                 val gOrd = StringBuilder(gemtOrdTemp)
                 gOrd.setCharAt(position, bogstav.lowercaseChar())
                 gemtOrdTemp = gOrd.toString()
+
+                if (pointKontrol) {
+                    tjekBogstavRigtig()
+                    pointKontrol = false
+                }
             }
+
         }
 
-        //dog shit kode lavet kl 4 om natten
-//        while(position != position || position == 0) {
-//
-//            if (position != 0) {position + 1}
-//
-//            position = ord.indexOf(bogstav.lowercaseChar(), position)
-//
-//            if (position == -1) {
-//                bogstavRigtig = false
-//                return gemtOrd
-//            }
-//
-//            val gOrd = StringBuilder(gemtOrdTemp)
-//            gOrd.setCharAt(position, bogstav.lowercaseChar())
-//            gemtOrdTemp = gOrd.toString()
-//
-//            bogstavRigtig = true
-//            tjekBogstavRigtig()
-//        }
+        if (gemtOrdTemp == gemtOrd) {
+            spiller.skiftSpillerLiv(-1)
+        }
 
         return gemtOrdTemp
     }
 
     fun tjekBogstavRigtig() {
 
-        if (bogstavRigtig) {
-        spiller.increaseSpillerPoint()}
+        spiller.increaseSpillerPoint()
 
-        bogstavRigtig = false
     }
 
     fun tjekVinder (ord: String, gemtOrd: String): Boolean {

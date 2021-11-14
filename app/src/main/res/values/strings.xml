@@ -21,4 +21,10 @@
     <string name="regel11">11. Man starter med 5 liv.</string>
 
     <string name="confirm">Forstået</string>
+
+    <!-- Diverse -->
+
+    <string name="spilIgen">Spil igen</string>
+    <string name="vinder">DU VANDT!</string>
+    <string name="taber">DU TABTE! :(</string>
 </resources>

@@ -54,14 +54,15 @@ class ItemAdapter() :
 
         holder.spinResult.text = "Spin hjulet!"
 
+        //TODO CATEGORY
+
         val ord = spilController.getRandomOrd(holder.itemView.context)
         var gemtOrd = spilController.gemOrd(ord)
         holder.ordGuess.text = gemtOrd
 
         holder.spinKnap.setOnClickListener{
             holder.spinResult.text = spilController.drejHjullet()
-
-            holder.hp.text = "HP: " + spilController.getSpillerLiv()
+            opdaterSpillerLiv(holder)
 
             if (spilController.tjekTaber()) {
                 Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
@@ -69,7 +70,6 @@ class ItemAdapter() :
         }
 
         holder.gaetKnap.setOnClickListener{
-
             try {
                 gemtOrd = spilController.tjekBogstav(
                     ord,
@@ -77,16 +77,19 @@ class ItemAdapter() :
                     holder.gaetTekstFelt.text.toString().single()
                 )
             }
-
             catch (e: NoSuchElementException) {e.printStackTrace()}
 
-                holder.point.text = "Point: " + spilController.getSpillerPoint()
+            opdaterSpillerPoint(holder)
+            opdaterSpillerLiv(holder)
 
             holder.ordGuess.text = gemtOrd
             holder.gaetTekstFelt.setText("")
 
             if (spilController.tjekVinder(ord, gemtOrd)) {
                 Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilVundet())
+            }
+            if (spilController.tjekTaber()) {
+                Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
             }
         }
     }
@@ -95,4 +98,15 @@ class ItemAdapter() :
     override fun getItemCount(): Int {
         return 1
     }
+
+    @SuppressLint("SetTextI18n")
+    fun opdaterSpillerLiv(holder: ItemViewHolder) {
+        holder.hp.text = "HP: " + spilController.getSpillerLiv()
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun opdaterSpillerPoint(holder: ItemViewHolder) {
+        holder.point.text = "Point: " + spilController.getSpillerPoint()
+    }
+
 }
