@@ -63,6 +63,7 @@ class ItemAdapter() :
         holder.spinKnap.setOnClickListener{
             holder.spinResult.text = spilController.drejHjullet()
             opdaterSpillerLiv(holder)
+            opdaterSpillerPoint(holder)
 
             if (spilController.tjekTaber()) {
                 Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
