@@ -8,9 +8,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.s205354_lykkehjulet.LykkehjulSpilDirections
 import com.example.s205354_lykkehjulet.R
+import com.example.s205354_lykkehjulet.ReglerDirections
 import com.example.s205354_lykkehjulet.SpilController
+import java.lang.reflect.Executable
 
 /**
  * @Source https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-recyclerview-scrollable-list#3
@@ -39,6 +43,7 @@ class ItemAdapter() :
         return ItemViewHolder(adapterLayout)
     }
 
+    //Supress så den gider at stoppe at brokke sig over at jeg sætter to strings sammen: lj 63 + 64
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.gaetKnap.text = "gæt"
@@ -47,17 +52,42 @@ class ItemAdapter() :
         holder.hp.text = "HP: 5"
         holder.point.text = "Point: 0"
 
+        holder.spinResult.text = "Spin hjulet!"
 
+        val ord = spilController.getRandomOrd(holder.itemView.context)
+        var gemtOrd = spilController.gemOrd(ord)
+        holder.ordGuess.text = gemtOrd
 
         holder.spinKnap.setOnClickListener{
             holder.spinResult.text = spilController.drejHjullet()
-            holder.point.text = "Point: " + spilController.getSpillerPoint()
+
             holder.hp.text = "HP: " + spilController.getSpillerLiv()
 
-            val ord = spilController.getRandomOrd(holder.itemView.context)
-            val gemtOrd = spilController.gemOrd(ord)
-            holder.ordGuess.text = gemtOrd
+            if (spilController.tjekTaber()) {
+                Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
+            }
+        }
 
+        holder.gaetKnap.setOnClickListener{
+
+            try {
+                gemtOrd = spilController.tjekBogstav(
+                    ord,
+                    gemtOrd,
+                    holder.gaetTekstFelt.text.toString().single()
+                )
+            }
+
+            catch (e: NoSuchElementException) {e.printStackTrace()}
+
+                holder.point.text = "Point: " + spilController.getSpillerPoint()
+
+            holder.ordGuess.text = gemtOrd
+            holder.gaetTekstFelt.setText("")
+
+            if (spilController.tjekVinder(ord, gemtOrd)) {
+                Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilVundet())
+            }
         }
     }
 

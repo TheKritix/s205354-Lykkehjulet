@@ -12,6 +12,8 @@ class SpilData {
     var spillerPoint = 0
         get() = field
 
+    var tempSpillerPoint = 0
+
     //Størelsen på antalet af mulige ting man kan lande på i lykkehjulet
     private val lykkehjulSize = 24
 
@@ -24,7 +26,7 @@ class SpilData {
     //Mulighederne på lykkehjulet
     fun lykkehjul(num: Int): String{
 
-        var tempSpillerPoint = 0
+        tempSpillerPoint = 0
         var tempSpillerLiv = 0
 
         when(num) {
@@ -54,17 +56,19 @@ class SpilData {
             24 -> tempSpillerLiv = -1
         }
 
-        spillerPoint = tempSpillerPoint + spillerPoint
-
         spillerLiv = spillerLiv + tempSpillerLiv
 
         if (tempSpillerLiv > 0) {return "Du fik " + tempSpillerLiv.toString() + " liv"}
 
         else if (tempSpillerLiv < 0 ) {return "Du mistede " + tempSpillerLiv.toString() + " liv"}
 
-        else if (spillerPoint == 0) {return "Du gik bankeråt"}
+        else if (tempSpillerPoint == 0) {return "Du gik bankeråt"}
 
         else  {return "Du fik " + tempSpillerPoint.toString() + " point"}
 
+    }
+    fun increaseSpillerPoint(){
+
+        spillerPoint = spillerPoint + tempSpillerPoint
     }
 }

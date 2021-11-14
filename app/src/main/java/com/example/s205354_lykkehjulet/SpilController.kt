@@ -1,22 +1,19 @@
 package com.example.s205354_lykkehjulet
 
 import android.content.Context
-import android.content.res.Resources
+import java.lang.Exception
+import java.lang.StringBuilder
 
+
+/**
+ * @Source https://www.w3schools.com/java/ref_string_indexof.asp
+ */
 
 class SpilController {
 
     val spiller = SpilData()
 
-    fun ordController() {
-
-        val pointFoar = spiller.spillerPoint
-
-       // val ord = getRandomOrd()
-
-       // var gemtOrd = gemOrd(ord)
-
-    }
+    var bogstavRigtig = false
 
     fun getSpillerLiv(): Int {
         return spiller.spillerLiv
@@ -49,8 +46,63 @@ class SpilController {
         return gemtOrd
     }
 
-    fun tjekBogstav (ord: String, gemtOrd: String): String {
+    fun tjekBogstav (ord: String, gemtOrd: String, bogstav: Char): String {
 
-        return ord
+        var gemtOrdTemp = gemtOrd
+        var position: Int
+
+        for (i in 0..gemtOrd.length) {
+
+            position = ord.indexOf(bogstav.lowercaseChar(), i)
+
+            if (position != -1) {
+                val gOrd = StringBuilder(gemtOrdTemp)
+                gOrd.setCharAt(position, bogstav.lowercaseChar())
+                gemtOrdTemp = gOrd.toString()
+            }
+        }
+
+        //dog shit kode lavet kl 4 om natten
+//        while(position != position || position == 0) {
+//
+//            if (position != 0) {position + 1}
+//
+//            position = ord.indexOf(bogstav.lowercaseChar(), position)
+//
+//            if (position == -1) {
+//                bogstavRigtig = false
+//                return gemtOrd
+//            }
+//
+//            val gOrd = StringBuilder(gemtOrdTemp)
+//            gOrd.setCharAt(position, bogstav.lowercaseChar())
+//            gemtOrdTemp = gOrd.toString()
+//
+//            bogstavRigtig = true
+//            tjekBogstavRigtig()
+//        }
+
+        return gemtOrdTemp
+    }
+
+    fun tjekBogstavRigtig() {
+
+        if (bogstavRigtig) {
+        spiller.increaseSpillerPoint()}
+
+        bogstavRigtig = false
+    }
+
+    fun tjekVinder (ord: String, gemtOrd: String): Boolean {
+        if (ord == gemtOrd) {return true}
+
+        return false
+    }
+
+    fun tjekTaber(): Boolean {
+
+        if(getSpillerLiv() == 0) {return true}
+
+        return false
     }
 }
