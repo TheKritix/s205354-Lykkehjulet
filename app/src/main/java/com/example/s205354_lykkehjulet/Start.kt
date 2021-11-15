@@ -52,9 +52,6 @@ class Start : Fragment() {
         binding.startButton.setOnClickListener{
             Navigation.findNavController(it).navigate(StartDirections.nextFrag())
         }
-
-
-
     }
 
     companion object {
