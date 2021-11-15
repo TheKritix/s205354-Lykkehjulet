@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     android:background="#C0CEDC">
 
- <!--
+    <!--
  https://stackoverflow.com/questions/2361497/how-to-create-edittext-accepts-alphabets-only-in-android/35954993
  -->
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/gætKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/gradient_knap"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -22,27 +23,30 @@
         app:layout_constraintTop_toBottomOf="@+id/gætTekstFelt"
         app:layout_constraintVertical_bias="0.309" />
 
+
+    <!-- Kilde til billede https://www.flaticon.com/free-icon/wheel-of-fortune_2006249 -->
+
     <ImageView
         android:id="@+id/ordBackdrop"
-        android:layout_width="0dp"
-        android:layout_height="74dp"
-        android:background="#9BB7E3"
-        app:layout_constraintBottom_toBottomOf="@+id/ordGuess"
-        app:layout_constraintEnd_toEndOf="@+id/ordGuess"
-        app:layout_constraintStart_toStartOf="@+id/ordGuess"
-        app:layout_constraintTop_toTopOf="@+id/ordGuess"
-        android:layout_marginRight="-25dp"
-        android:layout_marginLeft="-25dp"/>
+        android:layout_width="191dp"
+        android:layout_height="193dp"
+        android:background="@drawable/wheel_of_fortune"
+        app:layout_constraintBottom_toBottomOf="@+id/spinKnap"
+        app:layout_constraintEnd_toEndOf="@+id/spinKnap"
+        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintStart_toStartOf="@+id/spinKnap"
+        app:layout_constraintTop_toTopOf="@+id/spinKnap"
+        app:layout_constraintVertical_bias="0.52" />
 
     <ImageView
         android:id="@+id/gaetBackdrop"
         android:layout_width="235dp"
         android:layout_height="73dp"
+        android:background="#9BB7E3"
         app:layout_constraintBottom_toBottomOf="@+id/gætTekstFelt"
         app:layout_constraintEnd_toEndOf="@+id/gætTekstFelt"
         app:layout_constraintStart_toStartOf="@+id/gætTekstFelt"
-        app:layout_constraintTop_toTopOf="@+id/gætTekstFelt"
-        android:background="#9BB7E3"  />
+        app:layout_constraintTop_toTopOf="@+id/gætTekstFelt" />
 
     <EditText
         android:id="@+id/gætTekstFelt"
@@ -60,11 +64,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinKnap" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/spinKnap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_width="125dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/gradient_knap"
         android:text="Spin Hjullet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:text="//PLACEHOLDER//"
+        android:textColor="#000000"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/spinKnap"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,17 +109,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-   <TextView
-       android:id="@+id/ordGuess"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="ordPlaceholder"
-       android:textSize="40dp"
-       app:layout_constraintBottom_toTopOf="@+id/gætTekstFelt"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.496"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/spinKnap"
-       app:layout_constraintVertical_bias="0.305" />
+    <TextView
+        android:id="@+id/ordGuess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ordPlaceholder"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/gætTekstFelt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinKnap"
+        app:layout_constraintVertical_bias="0.564" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

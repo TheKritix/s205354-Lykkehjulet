@@ -49,6 +49,7 @@ class spilVundet : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.spilIgenKnap.setOnClickListener{
             Navigation.findNavController(it).navigate(spilVundetDirections.actionSpilVundetToLykkehjulSpil())
         }
