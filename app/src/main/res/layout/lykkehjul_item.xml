@@ -3,44 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#C0CEDC">
 
  <!--
  https://stackoverflow.com/questions/2361497/how-to-create-edittext-accepts-alphabets-only-in-android/35954993
  -->
 
 
-   <Button
-       android:id="@+id/gætKnap"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.498"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/gætTekstFelt"
-       app:layout_constraintVertical_bias="0.491" />
+    <Button
+        android:id="@+id/gætKnap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gætTekstFelt"
+        app:layout_constraintVertical_bias="0.309" />
 
-   <EditText
-       android:id="@+id/gætTekstFelt"
-       android:layout_width="200dp"
-       android:layout_height="wrap_content"
-       android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-       android:ems="10"
-       android:inputType="textPersonName"
-       android:maxLength="1"
-       android:textAlignment="center"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.497"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/spinKnap" />
+    <ImageView
+        android:id="@+id/ordBackdrop"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:background="#9BB7E3"
+        app:layout_constraintBottom_toBottomOf="@+id/ordGuess"
+        app:layout_constraintEnd_toEndOf="@+id/ordGuess"
+        app:layout_constraintStart_toStartOf="@+id/ordGuess"
+        app:layout_constraintTop_toTopOf="@+id/ordGuess"
+        android:layout_marginRight="-25dp"
+        android:layout_marginLeft="-25dp"/>
 
-   <Button
+    <ImageView
+        android:id="@+id/gaetBackdrop"
+        android:layout_width="235dp"
+        android:layout_height="73dp"
+        app:layout_constraintBottom_toBottomOf="@+id/gætTekstFelt"
+        app:layout_constraintEnd_toEndOf="@+id/gætTekstFelt"
+        app:layout_constraintStart_toStartOf="@+id/gætTekstFelt"
+        app:layout_constraintTop_toTopOf="@+id/gætTekstFelt"
+        android:background="#9BB7E3"  />
+
+    <EditText
+        android:id="@+id/gætTekstFelt"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="1"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinKnap" />
+
+    <Button
         android:id="@+id/spinKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="176dp"
         android:text="Spin Hjullet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.465" />
+        app:layout_constraintVertical_bias="0.149" />
 
     <TextView
         android:id="@+id/hp"
