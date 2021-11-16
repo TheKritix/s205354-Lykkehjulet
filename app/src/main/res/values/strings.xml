@@ -27,4 +27,10 @@
     <string name="spilIgen">Spil igen</string>
     <string name="vinder">DU VANDT!</string>
     <string name="taber">DU TABTE! :(</string>
+    <string name="bogstavHint">Bogstav</string>
+    <string name="hp_placeholder">hp:placeholder</string>
+    <string name="spin_hjullet">Spin Hjullet</string>
+    <string name="placeholder">//PLACEHOLDER//</string>
+    <string name="point_placeholder">point:placeholder</string>
+    <string name="ordplaceholder">ordPlaceholder</string>
 </resources>
