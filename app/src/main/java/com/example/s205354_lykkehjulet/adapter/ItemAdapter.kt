@@ -3,6 +3,7 @@ package com.example.s205354_lykkehjulet.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.app.NotificationCompat.getAction
+import androidx.core.view.accessibility.AccessibilityEventCompat.getAction
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
@@ -103,11 +106,10 @@ class ItemAdapter() :
 
         //Automatisk luk af Android Soft Keyboard når man vælger et bogstav for at undgå problemer med at lukke keyboard
         holder.gaetTekstFelt.addTextChangedListener {
+
             val keyboardBeGone = holder.itemView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             keyboardBeGone.hideSoftInputFromWindow(holder.itemView.windowToken, 0)
         }
-
-
     }
 
     //Hvor mange gange den gentager hvad man ser. Da vi ikke har nogle elementer der skal være der mere end én gang, så sætter vi den bare til 1 her.
