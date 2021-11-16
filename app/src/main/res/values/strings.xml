@@ -33,9 +33,4 @@
     <string name="placeholder">//PLACEHOLDER//</string>
     <string name="point_placeholder">point:placeholder</string>
     <string name="ordplaceholder">ordPlaceholder</string>
-    <string name="ordplaceholder">ordPlaceholder</string>
-    <string name="point_placeholder">point:placeholder</string>
-    <string name="hp_placeholder">hp:placeholder</string>
-    <string name="placeholder">//PLACEHOLDER//</string>
-    <string name="spin_hjullet">Spin Hjullet</string>
 </resources>
