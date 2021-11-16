@@ -15,7 +15,7 @@
         android:id="@+id/gætKnap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_knap"
+        android:background="@drawable/gradient_knap_blaa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -66,10 +66,10 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/spinKnap"
-        android:layout_width="125dp"
-        android:layout_height="45dp"
+        android:layout_width="121dp"
+        android:layout_height="44dp"
         android:layout_marginTop="220dp"
-        android:background="@drawable/gradient_knap"
+        android:background="@drawable/gradient_knap_blaa"
         android:text="Spin Hjullet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

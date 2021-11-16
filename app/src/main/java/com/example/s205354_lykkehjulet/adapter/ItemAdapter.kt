@@ -54,6 +54,8 @@ class ItemAdapter() :
 
         holder.spinResult.text = "Spin hjulet!"
 
+        holder.gaetKnap.background.apply { R.drawable.gradient_knap_graa }
+
         //TODO CATEGORY
 
         val ord = spilController.getRandomOrd(holder.itemView.context)

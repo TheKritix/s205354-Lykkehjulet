@@ -2,6 +2,8 @@ package com.example.s205354_lykkehjulet
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -33,9 +35,12 @@ class LykkehjuletMain : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         setupActionBar(navController)
+
+        //Fjener top bar
+        supportActionBar?.hide()
     }
 
     private fun setupActionBar(navController: NavController) {
         NavigationUI.setupActionBarWithNavController(this, navController)
     }
-    }
+}
