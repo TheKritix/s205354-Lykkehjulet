@@ -2,8 +2,6 @@ package com.example.s205354_lykkehjulet.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.text.TextWatcher
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,120 +9,144 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.app.NotificationCompat.getAction
-import androidx.core.view.accessibility.AccessibilityEventCompat.getAction
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.s205354_lykkehjulet.LykkehjulSpilDirections
 import com.example.s205354_lykkehjulet.R
-import com.example.s205354_lykkehjulet.ReglerDirections
 import com.example.s205354_lykkehjulet.SpilController
-import java.lang.reflect.Executable
 
 /**
  * @Source https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-recyclerview-scrollable-list#3
  * @Source https://medium.com/inside-ppl-b7/recyclerview-inside-fragment-with-android-studio-680cbed59d84
  *
  * @Source Soft Keyboard Håndtering: https://stackoverflow.com/questions/41790357/close-hide-the-android-soft-keyboard-with-kotlin
+ * @Source Static View Handling med flere Views https://blog.mindorks.com/recyclerview-multiple-view-types-in-android
  */
-class ItemAdapter() :
-    RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(list: ArrayList<RVDataHandler>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    var list: ArrayList<RVDataHandler> = list
+
+    companion object {
+        const val viewTypeHjul = 1
+        const val viewTypeGaet = 2
+    }
 
     private val spilController = SpilController()
 
-
-    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val gaetKnap: Button = view.findViewById(R.id.gætKnap)
-        val gaetTekstFelt: EditText = view.findViewById(R.id.gætTekstFelt)
-        val ordGuess: TextView = view.findViewById(R.id.ordGuess)
+    class ItemViewHolderHjul(view: View) : RecyclerView.ViewHolder(view) {
         val spinResult: TextView = view.findViewById(R.id.spinResul)
         val spinKnap: Button = view.findViewById(R.id.spinKnap)
         val hp: TextView = view.findViewById(R.id.hp)
         val point: TextView = view.findViewById(R.id.point)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.lykkehjul_item, parent, false)
-
-        return ItemViewHolder(adapterLayout)
+    class ItemViewHolderGaet(view: View) : RecyclerView.ViewHolder(view) {
+        val gaetKnap: Button = view.findViewById(R.id.gætKnap)
+        val gaetTekstFelt: EditText = view.findViewById(R.id.gætTekstFelt)
+        val ordGuess: TextView = view.findViewById(R.id.ordGuess)
     }
 
-    //Supress så den gider at stoppe at brokke sig over at jeg sætter to strings sammen: lj 63 + 64
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+        if (viewType == viewTypeHjul) {
+            return ItemViewHolderHjul(LayoutInflater.from(parent.context)
+                .inflate(R.layout.lykkehjul_item_wheel, parent, false))
+        }
+        return ItemViewHolderGaet(LayoutInflater.from(parent.context)
+            .inflate(R.layout.lykkehjul_item_gaet, parent, false))
+
+    }
+
+    //Supress så den gider at stoppe at brokke sig over at jeg sætter to strings sammen
     @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.gaetKnap.text = "gæt"
-        holder.gaetTekstFelt.hint = "Gæt"
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        holder.hp.text = "HP: 5"
-        holder.point.text = "Point: 0"
+        if (list[position].viewType == viewTypeGaet) {
+            val holderGaet = holder as ItemViewHolderGaet
 
-        holder.spinResult.text = "Spin hjulet!"
+            holderGaet.gaetKnap.text = "gæt"
+            holderGaet.gaetTekstFelt.hint = "Gæt"
 
-        holder.gaetKnap.background.apply { R.drawable.gradient_knap_graa }
+            //TODO VIRKER IKKE LOLOLOLOLPOQWEOJN SKYD MIG
+            holderGaet.gaetKnap.background.apply { R.drawable.gradient_knap_graa }
 
-        //TODO CATEGORY
+            val ord = spilController.getRandomOrd(holderGaet.itemView.context)
+            var gemtOrd = spilController.gemOrd(ord)
+            holderGaet.ordGuess.text = gemtOrd
 
-        val ord = spilController.getRandomOrd(holder.itemView.context)
-        var gemtOrd = spilController.gemOrd(ord)
-        holder.ordGuess.text = gemtOrd
+            holderGaet.gaetKnap.setOnClickListener{
+                try {
+                    gemtOrd = spilController.tjekBogstav(
+                        ord,
+                        gemtOrd,
+                        holderGaet.gaetTekstFelt.text.toString().single()
+                    )
+                }
+                catch (e: NoSuchElementException) {e.printStackTrace()}
 
-        holder.spinKnap.setOnClickListener{
-            holder.spinResult.text = spilController.drejHjullet()
-            opdaterSpillerLiv(holder)
-            opdaterSpillerPoint(holder)
+                //TODO FIX DIS
+                //opdaterSpillerPoint(holderHjul)
+                //opdaterSpillerLiv(holderHjul)
 
-            if (spilController.tjekTaber()) {
-                Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
+                holderGaet.ordGuess.text = gemtOrd
+                holderGaet.gaetTekstFelt.setText("")
+
+                if (spilController.tjekVinder(ord, gemtOrd)) {
+                    Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilVundet())
+                }
+                if (spilController.tjekTaber()) {
+                    Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
+                }
+
+                //Automatisk luk af Android Soft Keyboard når man vælger et bogstav for at undgå problemer med at lukke keyboard
+                holderGaet.gaetTekstFelt.addTextChangedListener {
+
+                    val keyboardBeGone = holderGaet.itemView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    keyboardBeGone.hideSoftInputFromWindow(holderGaet.itemView.windowToken, 0)
+                }
             }
         }
+        else {
+            val holderHjul= holder as ItemViewHolderHjul
 
-        holder.gaetKnap.setOnClickListener{
-            try {
-                gemtOrd = spilController.tjekBogstav(
-                    ord,
-                    gemtOrd,
-                    holder.gaetTekstFelt.text.toString().single()
-                )
+            holderHjul.hp.text = "HP: 5"
+            holderHjul.point.text = "Point: 0"
+
+            //TODO CATEGORY
+
+            holderHjul.spinResult.text = "Spin hjulet!"
+
+            holderHjul.spinKnap.setOnClickListener{
+                holderHjul.spinResult.text = spilController.drejHjullet()
+                opdaterSpillerLiv(holderHjul)
+                opdaterSpillerPoint(holderHjul)
+                if (spilController.tjekTaber()) {
+                    Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
+                }
             }
-            catch (e: NoSuchElementException) {e.printStackTrace()}
-
-            opdaterSpillerPoint(holder)
-            opdaterSpillerLiv(holder)
-
-            holder.ordGuess.text = gemtOrd
-            holder.gaetTekstFelt.setText("")
-
-            if (spilController.tjekVinder(ord, gemtOrd)) {
-                Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilVundet())
-            }
-            if (spilController.tjekTaber()) {
-                Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
-            }
-        }
-
-        //Automatisk luk af Android Soft Keyboard når man vælger et bogstav for at undgå problemer med at lukke keyboard
-        holder.gaetTekstFelt.addTextChangedListener {
-
-            val keyboardBeGone = holder.itemView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            keyboardBeGone.hideSoftInputFromWindow(holder.itemView.windowToken, 0)
         }
     }
 
     //Hvor mange gange den gentager hvad man ser. Da vi ikke har nogle elementer der skal være der mere end én gang, så sætter vi den bare til 1 her.
     override fun getItemCount(): Int {
-        return 1
+        return list.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return list[position].viewType
     }
 
     @SuppressLint("SetTextI18n")
-    fun opdaterSpillerLiv(holder: ItemViewHolder) {
+    fun opdaterSpillerLiv(holder: ItemViewHolderHjul) {
         holder.hp.text = "HP: " + spilController.getSpillerLiv()
     }
 
     @SuppressLint("SetTextI18n")
-    fun opdaterSpillerPoint(holder: ItemViewHolder) {
-        holder.point.text = "Point: " + spilController.getSpillerPoint()
+    fun opdaterSpillerPoint(holder: ItemViewHolderHjul) {
+        (holder as ItemViewHolderHjul).point.text = "Point: " + spilController.getSpillerPoint()
     }
+
 
 }

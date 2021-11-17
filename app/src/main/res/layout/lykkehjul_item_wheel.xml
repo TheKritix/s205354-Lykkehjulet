@@ -11,20 +11,6 @@
  -->
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/gætKnap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gradient_knap_blaa"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gætTekstFelt"
-        app:layout_constraintVertical_bias="0.309"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-
     <!-- Kilde til billede https://www.flaticon.com/free-icon/wheel-of-fortune_2006249 -->
 
     <ImageView
@@ -38,33 +24,6 @@
         app:layout_constraintStart_toStartOf="@+id/spinKnap"
         app:layout_constraintTop_toTopOf="@+id/spinKnap"
         app:layout_constraintVertical_bias="0.52" />
-
-    <ImageView
-        android:id="@+id/gaetBackdrop"
-        android:layout_width="235dp"
-        android:layout_height="73dp"
-        android:background="#9BB7E3"
-        app:layout_constraintBottom_toBottomOf="@+id/gætTekstFelt"
-        app:layout_constraintEnd_toEndOf="@+id/gætTekstFelt"
-        app:layout_constraintStart_toStartOf="@+id/gætTekstFelt"
-        app:layout_constraintTop_toTopOf="@+id/gætTekstFelt" />
-
-    <EditText
-        android:id="@+id/gætTekstFelt"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        android:ems="10"
-        android:hint="@string/bogstavHint"
-        android:inputType="textPersonName"
-        android:maxLength="1"
-        android:minHeight="48dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinKnap" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/spinKnap"
@@ -114,18 +73,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/ordGuess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ordplaceholder"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/gætTekstFelt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinKnap"
-        app:layout_constraintVertical_bias="0.564" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
