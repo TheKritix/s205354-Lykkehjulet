@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#C0CEDC">
+    android:layout_height="match_parent">
 
     <!--
  https://stackoverflow.com/questions/2361497/how-to-create-edittext-accepts-alphabets-only-in-android/35954993
@@ -15,27 +14,31 @@
 
     <ImageView
         android:id="@+id/ordBackdrop"
-        android:layout_width="191dp"
-        android:layout_height="193dp"
+        android:layout_width="283dp"
+        android:layout_height="288dp"
         android:background="@drawable/wheel_of_fortune"
         app:layout_constraintBottom_toBottomOf="@+id/spinKnap"
         app:layout_constraintEnd_toEndOf="@+id/spinKnap"
-        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="@+id/spinKnap"
         app:layout_constraintTop_toTopOf="@+id/spinKnap"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.537" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/spinKnap"
         android:layout_width="121dp"
         android:layout_height="48dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="404dp"
+        android:layout_marginBottom="279dp"
         android:background="@drawable/gradient_knap_blaa"
         android:text="@string/spin_hjullet"
-        android:textColor="#0D47A1"
+        android:fontFamily="@font/scope_one"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/spinResul"
@@ -72,7 +75,6 @@
         android:textColor="#455A64"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

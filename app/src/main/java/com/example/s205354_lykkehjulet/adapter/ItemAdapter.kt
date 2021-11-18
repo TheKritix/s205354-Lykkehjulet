@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.view.menu.MenuView
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
@@ -23,10 +24,13 @@ import com.example.s205354_lykkehjulet.SpilController
  * @Source Soft Keyboard Håndtering: https://stackoverflow.com/questions/41790357/close-hide-the-android-soft-keyboard-with-kotlin
  * @Source Static View Handling med flere Views https://blog.mindorks.com/recyclerview-multiple-view-types-in-android
  */
-class ItemAdapter(list: ArrayList<RVDataHandler>) :
+class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var list: ArrayList<RVDataHandler> = list
+    //Sørger for at man kan tilgå Views på tværs af hinanden.
+    //TODO yikes løsning. Skal fikses
+    lateinit var holderGaetView: ItemViewHolderGaet
+    lateinit var holderHjulView: ItemViewHolderHjul
 
     companion object {
         const val viewTypeHjul = 1
@@ -65,12 +69,14 @@ class ItemAdapter(list: ArrayList<RVDataHandler>) :
 
         if (list[position].viewType == viewTypeGaet) {
             val holderGaet = holder as ItemViewHolderGaet
+            holderGaetView = holderGaet
 
             holderGaet.gaetKnap.text = "gæt"
             holderGaet.gaetTekstFelt.hint = "Gæt"
 
-            //TODO VIRKER IKKE LOLOLOLOLPOQWEOJN SKYD MIG
-            holderGaet.gaetKnap.background.apply { R.drawable.gradient_knap_graa }
+            //Sætter knappen til grå og sørger for at man ikke kan trykke på den før at man har trykket på hjulet.
+            holderGaet.gaetKnap.setBackgroundResource(R.drawable.gradient_knap_graa)
+            holderGaet.gaetKnap.isEnabled = false
 
             val ord = spilController.getRandomOrd(holderGaet.itemView.context)
             var gemtOrd = spilController.gemOrd(ord)
@@ -86,9 +92,16 @@ class ItemAdapter(list: ArrayList<RVDataHandler>) :
                 }
                 catch (e: NoSuchElementException) {e.printStackTrace()}
 
-                //TODO FIX DIS
-                //opdaterSpillerPoint(holderHjul)
-                //opdaterSpillerLiv(holderHjul)
+                opdaterSpillerPoint(holderHjulView)
+                opdaterSpillerLiv(holderHjulView)
+
+                //Sørger for at man ikke kan trykke gæt flere gange
+                holderGaet.gaetKnap.setBackgroundResource(R.drawable.gradient_knap_graa)
+                holderGaet.gaetKnap.isEnabled = false
+
+                //Gør så man kan trykke på Spin efter man har forsøgt at gætte et bogstav
+                holderHjulView.spinKnap.setBackgroundResource(R.drawable.gradient_knap_blaa)
+                holderHjulView.spinKnap.isEnabled = true
 
                 holderGaet.ordGuess.text = gemtOrd
                 holderGaet.gaetTekstFelt.setText("")
@@ -109,7 +122,8 @@ class ItemAdapter(list: ArrayList<RVDataHandler>) :
             }
         }
         else {
-            val holderHjul= holder as ItemViewHolderHjul
+            val holderHjul = holder as ItemViewHolderHjul
+            holderHjulView = holderHjul
 
             holderHjul.hp.text = "HP: 5"
             holderHjul.point.text = "Point: 0"
@@ -120,11 +134,23 @@ class ItemAdapter(list: ArrayList<RVDataHandler>) :
 
             holderHjul.spinKnap.setOnClickListener{
                 holderHjul.spinResult.text = spilController.drejHjullet()
+
+                //Opdaterer HP og Point hvis man går bankerot eller mister et liv.
                 opdaterSpillerLiv(holderHjul)
                 opdaterSpillerPoint(holderHjul)
+
+                //Stopper muligheden for at spamme på spin.
+                holderHjul.spinKnap.setBackgroundResource(R.drawable.gradient_knap_graa)
+                holderHjul.spinKnap.isEnabled = false
+
+                //Gør så man kan trykke på Gaet efter man har trykket på spin
+                holderGaetView.gaetKnap.setBackgroundResource(R.drawable.gradient_knap_blaa)
+                holderGaetView.gaetKnap.isEnabled = true
+
                 if (spilController.tjekTaber()) {
                     Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
                 }
+
             }
         }
     }
@@ -145,8 +171,7 @@ class ItemAdapter(list: ArrayList<RVDataHandler>) :
 
     @SuppressLint("SetTextI18n")
     fun opdaterSpillerPoint(holder: ItemViewHolderHjul) {
-        (holder as ItemViewHolderHjul).point.text = "Point: " + spilController.getSpillerPoint()
+        holder.point.text = "Point: " + spilController.getSpillerPoint()
     }
-
 
 }

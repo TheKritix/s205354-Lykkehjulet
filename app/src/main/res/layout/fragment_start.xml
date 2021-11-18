@@ -28,6 +28,8 @@
         android:background="@drawable/gradient_knap_blaa"
         android:fontFamily="@font/scope_one"
         android:text="@string/startBTN"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -69,7 +71,7 @@
         app:layout_constraintVertical_bias="0.077" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/authorTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/authorTag"

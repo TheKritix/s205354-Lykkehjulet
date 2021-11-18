@@ -16,18 +16,22 @@ import com.example.s205354_lykkehjulet.databinding.ActivityMainBinding
  * Kilder:
  *
  * ** Kilder til Fragments:
- *      https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component#10
- *      https://youtu.be/Q2HY58s9cHs
+ * @Source https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component#10
+ * @Source https://youtu.be/Q2HY58s9cHs
  */
 
 class LykkehjuletMain : AppCompatActivity() {
 
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //Opretter binding
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //opretter vores navController parameter.
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
@@ -38,7 +42,12 @@ class LykkehjuletMain : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
+    //Sætter top baren til at afspejle hvilket fragment den er på. Som udgangspunkt er topbaren fjernet.
     private fun setupActionBar(navController: NavController) {
         NavigationUI.setupActionBarWithNavController(this, navController)
+    }
+    //Gør så man kan trykke tilbage på topbaren, hvis man ønsker den implementeret i en given fragment
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

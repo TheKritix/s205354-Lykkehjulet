@@ -10,8 +10,8 @@
         xmlns:android = "http://schemas.android.com/apk/res/android" >
 
         <gradient
-            android:startColor = "#84E9FF"
-            android:endColor = "#0F78D9"
+            android:startColor = "#18497C"
+            android:endColor = "#0C2743"
             android:type = "linear" />
 
         <corners android:bottomRightRadius="8dp"
