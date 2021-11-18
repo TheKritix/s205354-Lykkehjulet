@@ -13,7 +13,7 @@
     <!-- Kilde til billede https://www.flaticon.com/free-icon/wheel-of-fortune_2006249 -->
 
     <ImageView
-        android:id="@+id/ordBackdrop"
+        android:id="@+id/spinBackdrop"
         android:layout_width="283dp"
         android:layout_height="288dp"
         android:background="@drawable/wheel_of_fortune"

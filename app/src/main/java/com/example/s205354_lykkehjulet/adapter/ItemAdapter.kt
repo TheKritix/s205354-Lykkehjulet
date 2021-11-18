@@ -67,14 +67,48 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        if (list[position].viewType == viewTypeGaet) {
+
+        if (list[position].viewType == viewTypeHjul){
+            val holderHjul = holder as ItemViewHolderHjul
+            holderHjulView = holderHjul
+
+            holderHjul.hp.text = "HP: 5"
+            holderHjul.point.text = "Point: 0"
+
+            //TODO CATEGORY
+
+            holderHjul.spinResult.text = "Spin hjulet!"
+
+            holderHjul.spinKnap.setOnClickListener{
+                holderHjul.spinResult.text = spilController.drejHjullet()
+
+
+                //Opdaterer HP og Point hvis man går bankerot eller mister et liv.
+                opdaterSpillerLiv(holderHjul)
+                opdaterSpillerPoint(holderHjul)
+
+                //Stopper muligheden for at spamme på spin.
+                holderHjul.spinKnap.setBackgroundResource(R.drawable.gradient_knap_graa)
+                holderHjul.spinKnap.isEnabled = false
+
+                //Gør så man kan trykke på Gaet efter man har trykket på spin
+
+
+                holderGaetView.gaetKnap.setBackgroundResource(R.drawable.gradient_knap_blaa)
+                holderGaetView.gaetKnap.isEnabled = true
+
+                if (spilController.tjekTaber()) {
+                    Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
+                }
+
+            }
+        }
+        else  {
             val holderGaet = holder as ItemViewHolderGaet
             holderGaetView = holderGaet
 
-            holderGaet.gaetKnap.text = "gæt"
-            holderGaet.gaetTekstFelt.hint = "Gæt"
-
             //Sætter knappen til grå og sørger for at man ikke kan trykke på den før at man har trykket på hjulet.
+
             holderGaet.gaetKnap.setBackgroundResource(R.drawable.gradient_knap_graa)
             holderGaet.gaetKnap.isEnabled = false
 
@@ -82,6 +116,7 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
             var gemtOrd = spilController.gemOrd(ord)
             holderGaet.ordGuess.text = gemtOrd
 
+            //Ved tryk på gæt knappen skal dette ske:
             holderGaet.gaetKnap.setOnClickListener{
                 try {
                     gemtOrd = spilController.tjekBogstav(
@@ -112,47 +147,16 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
                 if (spilController.tjekTaber()) {
                     Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
                 }
+            }
 
-                //Automatisk luk af Android Soft Keyboard når man vælger et bogstav for at undgå problemer med at lukke keyboard
-                holderGaet.gaetTekstFelt.addTextChangedListener {
+            //Automatisk luk af Android Soft Keyboard når man vælger et bogstav for at undgå problemer med at lukke keyboard
+            holderGaet.gaetTekstFelt.addTextChangedListener {
 
-                    val keyboardBeGone = holderGaet.itemView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    keyboardBeGone.hideSoftInputFromWindow(holderGaet.itemView.windowToken, 0)
-                }
+                val keyboardBeGone = holderGaet.itemView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                keyboardBeGone.hideSoftInputFromWindow(holderGaet.itemView.windowToken, 0)
             }
         }
-        else {
-            val holderHjul = holder as ItemViewHolderHjul
-            holderHjulView = holderHjul
 
-            holderHjul.hp.text = "HP: 5"
-            holderHjul.point.text = "Point: 0"
-
-            //TODO CATEGORY
-
-            holderHjul.spinResult.text = "Spin hjulet!"
-
-            holderHjul.spinKnap.setOnClickListener{
-                holderHjul.spinResult.text = spilController.drejHjullet()
-
-                //Opdaterer HP og Point hvis man går bankerot eller mister et liv.
-                opdaterSpillerLiv(holderHjul)
-                opdaterSpillerPoint(holderHjul)
-
-                //Stopper muligheden for at spamme på spin.
-                holderHjul.spinKnap.setBackgroundResource(R.drawable.gradient_knap_graa)
-                holderHjul.spinKnap.isEnabled = false
-
-                //Gør så man kan trykke på Gaet efter man har trykket på spin
-                holderGaetView.gaetKnap.setBackgroundResource(R.drawable.gradient_knap_blaa)
-                holderGaetView.gaetKnap.isEnabled = true
-
-                if (spilController.tjekTaber()) {
-                    Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
-                }
-
-            }
-        }
     }
 
     //Hvor mange gange den gentager hvad man ser. Da vi ikke har nogle elementer der skal være der mere end én gang, så sætter vi den bare til 1 her.
