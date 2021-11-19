@@ -64,7 +64,7 @@ class SpilData {
 
         else if (tempSpillerPoint == 0) {return "Du gik bankeråt"}
 
-        else  {return "Du fik " + tempSpillerPoint.toString() + " point"}
+        else  {return "Du ramte " + tempSpillerPoint.toString() + " point"}
 
     }
     fun increaseSpillerPoint(){
