@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.s205354_lykkehjulet.R
 
 
+
 class ReglerAdapter(private var list: List<String>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ReglerViewHolder(view: View): RecyclerView.ViewHolder(view) {

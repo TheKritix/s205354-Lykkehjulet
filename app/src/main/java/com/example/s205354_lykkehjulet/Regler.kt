@@ -9,7 +9,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.s205354_lykkehjulet.adapter.ReglerAdapter
-import com.example.s205354_lykkehjulet.adapter.ReglerData
 import com.example.s205354_lykkehjulet.databinding.FragmentReglerBinding
 
 class Regler : Fragment() {
@@ -32,7 +31,6 @@ class Regler : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val regelData = ArrayList<ReglerData>()
 
         var regelList = listOf(
             getString(R.string.regel1),
@@ -47,18 +45,6 @@ class Regler : Fragment() {
             getString(R.string.regel10),
             getString(R.string.regel11),
         )
-
-        regelData.add(ReglerData(getString(R.string.regel1)))
-        regelData.add(ReglerData(getString(R.string.regel2)))
-        regelData.add(ReglerData(getString(R.string.regel3)))
-        regelData.add(ReglerData(getString(R.string.regel4)))
-        regelData.add(ReglerData(getString(R.string.regel5)))
-        regelData.add(ReglerData(getString(R.string.regel6)))
-        regelData.add(ReglerData(getString(R.string.regel7)))
-        regelData.add(ReglerData(getString(R.string.regel8)))
-        regelData.add(ReglerData(getString(R.string.regel9)))
-        regelData.add(ReglerData(getString(R.string.regel10)))
-        regelData.add(ReglerData(getString(R.string.regel11)))
 
         recyclerView = binding.ReglerRecycler
         recyclerView.apply {
