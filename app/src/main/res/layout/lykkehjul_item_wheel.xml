@@ -16,6 +16,8 @@
         android:id="@+id/spinBackdrop"
         android:layout_width="283dp"
         android:layout_height="288dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
         android:background="@drawable/wheel_of_fortune"
         app:layout_constraintBottom_toBottomOf="@+id/spinKnap"
         app:layout_constraintEnd_toEndOf="@+id/spinKnap"
@@ -27,18 +29,16 @@
         android:id="@+id/spinKnap"
         android:layout_width="121dp"
         android:layout_height="48dp"
-        android:layout_marginTop="404dp"
-        android:layout_marginBottom="279dp"
         android:background="@drawable/gradient_knap_blaa"
-        android:text="@string/spin_hjullet"
         android:fontFamily="@font/scope_one"
+        android:text="@string/spin_hjullet"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.59" />
 
     <TextView
         android:id="@+id/spinResul"

@@ -32,7 +32,7 @@ class Regler : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var regelList = listOf(
+        val regelList = listOf(
             getString(R.string.regel1),
             getString(R.string.regel2),
             getString(R.string.regel3),

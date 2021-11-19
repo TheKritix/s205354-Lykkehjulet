@@ -28,8 +28,8 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
 
     //Sørger for at man kan tilgå Views på tværs af hinanden.
     //TODO yikes løsning. Skal fikses
-    lateinit var holderGaetView: ItemViewHolderGaet
-    lateinit var holderHjulView: ItemViewHolderHjul
+    private lateinit var holderGaetView: ItemViewHolderGaet
+    private lateinit var holderHjulView: ItemViewHolderHjul
 
     companion object {
         const val viewTypeHjul = 1
