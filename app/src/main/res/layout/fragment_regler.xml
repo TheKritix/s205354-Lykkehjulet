@@ -1,245 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:animationCache="false"
-    android:background="#C0CEDC"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:overScrollMode="never"
-    android:fillViewport="true"
-    >
+    android:background="#C0CEDC"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".Regler">
 
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/regel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/regelHeader"
+        android:textColor="#212121"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/reglerBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="200dp"
+        android:background="@drawable/gradient_knap_blaa"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ReglerRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="32dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:context=".Regler">
+        android:layout_marginTop="46dp"
+        android:layout_marginBottom="78dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
-            <TextView
-                android:id="@+id/regel2"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel2"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel3"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel8"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel8"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel9"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel9"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel9"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel10"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel4"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel4"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel5"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel3"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel3"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel4"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel1"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel1"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel2"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel5"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel5"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel6"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel10"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel10"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel11"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel7"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel7"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel8"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel11"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel11"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/reglerBTN"
-                app:layout_constraintHorizontal_bias="0.488"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.963" />
-
-            <TextView
-                android:id="@+id/regel6"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regel6"
-                android:textColor="#212121"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel7"
-                app:layout_constraintHorizontal_bias="0.491"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/regel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scope_one"
-                android:text="@string/regelHeader"
-                android:textColor="#212121"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/regel1"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.789" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/reglerBTN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:width="200dp"
-                android:fontFamily="@font/scope_one"
-                android:background="@drawable/gradient_knap_blaa"
-                android:text="@string/confirm"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.977" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
