@@ -17,6 +17,7 @@ class Regler : Fragment() {
 
     private val binding get() = _binding!!
 
+    //Opretter en endnu ikke instansieret RecyclerView
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -32,6 +33,7 @@ class Regler : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Liste over vores regler til vores RecyclerView
         val regelList = listOf(
             getString(R.string.regel1),
             getString(R.string.regel2),
@@ -46,11 +48,18 @@ class Regler : Fragment() {
             getString(R.string.regel11),
         )
 
+        //Opsætter vores RecyclerView for vores regler
         recyclerView = binding.ReglerRecycler
         recyclerView.apply {
             recyclerView.layoutManager = LinearLayoutManager(context)
-            recyclerView.adapter = ReglerAdapter(regelList)
+            recyclerView.adapter = ReglerAdapter(regelList, binding.reglerBTN)
         }
+
+        //Disabler knappen indtil at alle regler er læst.
+        binding.reglerBTN.isEnabled = false
+        binding.reglerBTN.setBackgroundResource(R.drawable.gradient_knap_graa)
+
+        //Forsæt knap videre til næste fragment.
         binding.reglerBTN.setOnClickListener{
             Navigation.findNavController(it).navigate(ReglerDirections.actionReglerToLykkehjulSpil())
         }

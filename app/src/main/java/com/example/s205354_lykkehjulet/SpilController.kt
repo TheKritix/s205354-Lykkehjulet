@@ -11,6 +11,7 @@ import java.lang.StringBuilder
 
 class SpilController {
 
+    //Opretter en spiller
     val spiller = SpilData()
 
     fun getSpillerLiv(): Int {
@@ -21,11 +22,13 @@ class SpilController {
         return spiller.spillerPoint
     }
 
+    //Drejer hjullet og skaffer en retur værdi. Da der er 24 muligheder, så skal vi bruge et tilfældigt tal mellem 1 og 24.
     fun drejHjullet(): String {
 
         return spiller.lykkehjul(spiller.ranTal(24))
     }
 
+    //Trækker et tilfældigt ord fra vores ordliste.
     fun getRandomOrd(context: Context): String {
 
         val ord = context.resources.getStringArray(R.array.ord).toList()
@@ -33,12 +36,13 @@ class SpilController {
         return ord[spiller.ranTal(ord.size-1)]
     }
 
+    //Gemmer ordet bag " ☐ ", så spilleren ikke kan se hvad der foregår. ☐ er ALT kode 9744 - https://altcodeunicode.com/
     fun gemOrd (ord: String): String {
 
         var gemtOrd = ""
 
         for(i in 1..ord.length) {
-            gemtOrd += "-"
+            gemtOrd += "☐"
         }
 
         return gemtOrd
