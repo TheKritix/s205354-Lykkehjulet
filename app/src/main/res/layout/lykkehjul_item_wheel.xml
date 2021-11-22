@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <!--
  https://stackoverflow.com/questions/2361497/how-to-create-edittext-accepts-alphabets-only-in-android/35954993
  -->
-
 
     <!-- Kilde til billede https://www.flaticon.com/free-icon/wheel-of-fortune_2006249 -->
 
@@ -16,19 +15,21 @@
         android:id="@+id/spinBackdrop"
         android:layout_width="283dp"
         android:layout_height="288dp"
-        android:scaleType="fitXY"
+        android:layout_marginBottom="10dp"
         android:adjustViewBounds="true"
         android:background="@drawable/wheel_of_fortune"
-        app:layout_constraintBottom_toBottomOf="@+id/spinKnap"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/spinKnap"
         app:layout_constraintStart_toStartOf="@+id/spinKnap"
         app:layout_constraintTop_toTopOf="@+id/spinKnap"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/spinKnap"
         android:layout_width="121dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/gradient_knap_blaa"
         android:fontFamily="@font/scope_one"
         android:text="@string/spin_hjullet"
@@ -36,23 +37,21 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/spinResul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginBottom="152dp"
         android:text="@string/placeholder"
         android:textColor="#000000"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/spinKnap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/hp"

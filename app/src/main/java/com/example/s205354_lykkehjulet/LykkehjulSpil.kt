@@ -54,7 +54,7 @@ class LykkehjulSpil : Fragment() {
         recyclerView = binding.LykkehjulRecycler
         recyclerView.apply {
            recyclerView.layoutManager = LinearLayoutManager(context)
-           recyclerView.adapter = ItemAdapter(dataList)
+           recyclerView.adapter = ItemAdapter(dataList, recyclerView)
         }
     }
 }

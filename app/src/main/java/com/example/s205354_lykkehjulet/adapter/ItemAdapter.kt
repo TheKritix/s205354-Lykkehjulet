@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.s205354_lykkehjulet.LykkehjulSpilDirections
 import com.example.s205354_lykkehjulet.R
 import com.example.s205354_lykkehjulet.SpilController
+import kotlinx.coroutines.*
+import kotlin.concurrent.thread
 
 /**
  * @Source https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-recyclerview-scrollable-list#3
@@ -22,9 +24,13 @@ import com.example.s205354_lykkehjulet.SpilController
  *
  * @Source Soft Keyboard Håndtering: https://stackoverflow.com/questions/41790357/close-hide-the-android-soft-keyboard-with-kotlin
  * @Source Static View Handling med flere Views https://blog.mindorks.com/recyclerview-multiple-view-types-in-android
+ * @Source Coroutine https://kotlinlang.org/docs/coroutines-basics.html#scope-builder
  */
-class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
+class ItemAdapter(private var list: ArrayList<RVDataHandler>, recyclerView: RecyclerView) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    //Indsætter vores recyclerView parameter ind, så vi kan manipulere med positioner.
+    private val thisRV = recyclerView
 
     //Sørger for at man kan tilgå Views på tværs af hinanden.
     //TODO yikes løsning. Skal fikses
@@ -54,11 +60,15 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         if (viewType == viewTypeHjul) {
-            return ItemViewHolderHjul(LayoutInflater.from(parent.context)
-                .inflate(R.layout.lykkehjul_item_wheel, parent, false))
+            return ItemViewHolderHjul(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.lykkehjul_item_wheel, parent, false)
+            )
         }
-        return ItemViewHolderGaet(LayoutInflater.from(parent.context)
-            .inflate(R.layout.lykkehjul_item_gaet, parent, false))
+        return ItemViewHolderGaet(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.lykkehjul_item_gaet, parent, false)
+        )
 
     }
 
@@ -67,7 +77,7 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
 
-        if (list[position].viewType == viewTypeHjul){
+        if (list[position].viewType == viewTypeHjul) {
             val holderHjul = holder as ItemViewHolderHjul
             holderHjulView = holderHjul
 
@@ -78,7 +88,7 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
 
             holderHjul.spinResult.text = "Spin hjulet!"
 
-            holderHjul.spinKnap.setOnClickListener{
+            holderHjul.spinKnap.setOnClickListener {
                 holderHjul.spinResult.text = spilController.drejHjullet()
 
 
@@ -92,17 +102,16 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
 
                 //Gør så man kan trykke på Gaet efter man har trykket på spin
 
-
                 holderGaetView.gaetKnap.setBackgroundResource(R.drawable.gradient_knap_blaa)
                 holderGaetView.gaetKnap.isEnabled = true
 
                 if (spilController.tjekTaber()) {
-                    Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
+                    Navigation.findNavController(it)
+                        .navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
                 }
 
             }
-        }
-        else  {
+        } else {
             val holderGaet = holder as ItemViewHolderGaet
             holderGaetView = holderGaet
 
@@ -116,15 +125,16 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
             holderGaet.ordGuess.text = gemtOrd
 
             //Ved tryk på gæt knappen skal dette ske:
-            holderGaet.gaetKnap.setOnClickListener{
+            holderGaet.gaetKnap.setOnClickListener {
                 try {
                     gemtOrd = spilController.tjekBogstav(
                         ord,
                         gemtOrd,
                         holderGaet.gaetTekstFelt.text.toString().single()
                     )
+                } catch (e: NoSuchElementException) {
+                    e.printStackTrace()
                 }
-                catch (e: NoSuchElementException) {e.printStackTrace()}
 
                 opdaterSpillerPoint(holderHjulView)
                 opdaterSpillerLiv(holderHjulView)
@@ -141,21 +151,33 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>) :
                 holderGaet.gaetTekstFelt.setText("")
 
                 if (spilController.tjekVinder(ord, gemtOrd)) {
-                    Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilVundet())
+                    Navigation.findNavController(it)
+                        .navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilVundet())
                 }
                 if (spilController.tjekTaber()) {
-                    Navigation.findNavController(it).navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
+                    Navigation.findNavController(it)
+                        .navigate(LykkehjulSpilDirections.actionLykkehjulSpilToSpilTabt())
                 }
             }
 
             //Automatisk luk af Android Soft Keyboard når man vælger et bogstav for at undgå problemer med at lukke keyboard
             holderGaet.gaetTekstFelt.addTextChangedListener {
 
-                val keyboardBeGone = holderGaet.itemView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                val keyboardBeGone =
+                    holderGaet.itemView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 keyboardBeGone.hideSoftInputFromWindow(holderGaet.itemView.windowToken, 0)
+
+                //Sørger for at position går tilbage til toppen efter keyboard lukker.
+                //Bruger en coroutine, så vi undgår at UI lagger når vi tilføjer et delay (istedet for Thread.sleep,
+                //som stopper hele applikationen kortvarigt. Vi bruger GlobalScope, da vi ikke har ViewModel her.
+                runBlocking {
+                    launch {
+                        delay(300L)
+                        thisRV.scrollToPosition(0)
+                    }
+                }
             }
         }
-
     }
 
     //Hvor mange gange den gentager hvad man ser. Da vi ikke har nogle elementer der skal være der mere end én gang, så sætter vi den bare til 1 her.
