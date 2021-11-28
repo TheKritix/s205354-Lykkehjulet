@@ -32,6 +32,7 @@ class LykkehjuletMain : AppCompatActivity() {
         setContentView(binding.root)
 
         //opretter vores navController parameter.
+        //specifik kilde: https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component#7
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController

@@ -2,6 +2,7 @@ package com.example.s205354_lykkehjulet.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
@@ -26,14 +28,13 @@ import kotlin.concurrent.thread
  * @Source Static View Handling med flere Views https://blog.mindorks.com/recyclerview-multiple-view-types-in-android
  * @Source Coroutine https://kotlinlang.org/docs/coroutines-basics.html#scope-builder
  */
-class ItemAdapter(private var list: ArrayList<RVDataHandler>, recyclerView: RecyclerView) :
+class ItemAdapter(private var list: List<Int>, recyclerView: RecyclerView) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    //Indsætter vores recyclerView parameter ind, så vi kan manipulere med positioner.
+    //Indsætter vores recyclerView parameter ind, så vi kan manipulere med positioner. Bruges til keyboardets lukke funktion.
     private val thisRV = recyclerView
 
     //Sørger for at man kan tilgå Views på tværs af hinanden.
-    //TODO yikes løsning. Skal fikses
     private lateinit var holderGaetView: ItemViewHolderGaet
     private lateinit var holderHjulView: ItemViewHolderHjul
 
@@ -42,15 +43,19 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>, recyclerView: Recy
         const val viewTypeGaet = 2
     }
 
+    //Opretter instans af vores spil.
     private val spilController = SpilController()
 
+    //Håndterer alt der har med vores hjul at gøre.
     class ItemViewHolderHjul(view: View) : RecyclerView.ViewHolder(view) {
         val spinResult: TextView = view.findViewById(R.id.spinResul)
         val spinKnap: Button = view.findViewById(R.id.spinKnap)
         val hp: TextView = view.findViewById(R.id.hp)
         val point: TextView = view.findViewById(R.id.point)
+        val kategori: TextView = view.findViewById(R.id.kategori)
     }
 
+    //Håndterer alle UI elementer der har med selve gætte funktionen at gøre.
     class ItemViewHolderGaet(view: View) : RecyclerView.ViewHolder(view) {
         val gaetKnap: Button = view.findViewById(R.id.gætKnap)
         val gaetTekstFelt: EditText = view.findViewById(R.id.gætTekstFelt)
@@ -77,7 +82,7 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>, recyclerView: Recy
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
 
-        if (list[position].viewType == viewTypeHjul) {
+        if (list[position] == 1) {
             val holderHjul = holder as ItemViewHolderHjul
             holderHjulView = holderHjul
 
@@ -124,6 +129,9 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>, recyclerView: Recy
             var gemtOrd = spilController.gemOrd(ord)
             holderGaet.ordGuess.text = gemtOrd
 
+            //Sætter kategorien til at være i toppen.
+            holderHjulView.kategori.text = "Kategori: " + spilController.spilKategori
+
             //Ved tryk på gæt knappen skal dette ske:
             holderGaet.gaetKnap.setOnClickListener {
                 try {
@@ -168,8 +176,7 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>, recyclerView: Recy
                 keyboardBeGone.hideSoftInputFromWindow(holderGaet.itemView.windowToken, 0)
 
                 //Sørger for at position går tilbage til toppen efter keyboard lukker.
-                //Bruger en coroutine, så vi undgår at UI lagger når vi tilføjer et delay (istedet for Thread.sleep,
-                //som stopper hele applikationen kortvarigt. Vi bruger GlobalScope, da vi ikke har ViewModel her.
+                //Bruger en coroutine, så vi undgår at UI lagger når vi tilføjer et delay (istedet for Thread.sleep)
                 runBlocking {
                     launch {
                         delay(300L)
@@ -186,7 +193,7 @@ class ItemAdapter(private var list: ArrayList<RVDataHandler>, recyclerView: Recy
     }
 
     override fun getItemViewType(position: Int): Int {
-        return list[position].viewType
+        return list[position]
     }
 
     @SuppressLint("SetTextI18n")

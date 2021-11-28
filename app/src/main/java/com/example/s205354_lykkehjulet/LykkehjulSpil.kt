@@ -10,12 +10,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s205354_lykkehjulet.databinding.FragmentLykkehjulSpilBinding
 import com.example.s205354_lykkehjulet.adapter.ItemAdapter
-import com.example.s205354_lykkehjulet.adapter.RVDataHandler
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * @Source https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-recyclerview-scrollable-list#3
@@ -47,14 +41,13 @@ class LykkehjulSpil : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dataList = ArrayList<RVDataHandler>()
-        dataList.add(RVDataHandler(ItemAdapter.viewTypeHjul))
-        dataList.add(RVDataHandler(ItemAdapter.viewTypeGaet))
+        //Vi bruger en liste med 2 tal, så vi kan skifte mellem vores views i RecyclerViewet ud fra position.
+        val positionList = listOf(1,2)
 
         recyclerView = binding.LykkehjulRecycler
         recyclerView.apply {
            recyclerView.layoutManager = LinearLayoutManager(context)
-           recyclerView.adapter = ItemAdapter(dataList, recyclerView)
+           recyclerView.adapter = ItemAdapter(positionList, recyclerView)
         }
     }
 }
