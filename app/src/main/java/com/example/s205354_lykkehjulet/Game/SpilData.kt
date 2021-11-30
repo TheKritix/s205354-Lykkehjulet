@@ -1,4 +1,4 @@
-package com.example.s205354_lykkehjulet
+package com.example.s205354_lykkehjulet.Game
 
 import java.util.*
 

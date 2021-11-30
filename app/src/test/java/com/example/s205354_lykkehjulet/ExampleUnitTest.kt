@@ -1,12 +1,9 @@
 package com.example.s205354_lykkehjulet
 
-import android.content.Context
-import android.content.res.Resources
-import android.util.Log
+import com.example.s205354_lykkehjulet.Game.SpilController
 import org.junit.Test
 
 import org.junit.Assert.*
-import org.junit.runner.manipulation.Ordering
 
 /**
  * Example local unit test, which will execute on the development machine (host).

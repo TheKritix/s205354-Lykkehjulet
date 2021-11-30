@@ -1,4 +1,4 @@
-package com.example.s205354_lykkehjulet
+package com.example.s205354_lykkehjulet.UI
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.s205354_lykkehjulet.R
 import com.example.s205354_lykkehjulet.adapter.ReglerAdapter
 import com.example.s205354_lykkehjulet.databinding.FragmentReglerBinding
 

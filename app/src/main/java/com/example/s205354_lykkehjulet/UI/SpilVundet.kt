@@ -1,4 +1,4 @@
-package com.example.s205354_lykkehjulet
+package com.example.s205354_lykkehjulet.UI
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,7 @@ import com.example.s205354_lykkehjulet.databinding.FragmentSpilVundetBinding
  * Fragment til når man vinder
  */
 
-class spilVundet : Fragment() {
+class SpilVundet : Fragment() {
 
     private var _binding: FragmentSpilVundetBinding? = null
 
@@ -33,7 +33,7 @@ class spilVundet : Fragment() {
 
         binding.spilIgenKnap.setOnClickListener {
             Navigation.findNavController(it)
-                .navigate(spilVundetDirections.actionSpilVundetToLykkehjulSpil())
+                .navigate(SpilVundetDirections.actionSpilVundetToLykkehjulSpil())
         }
     }
 }

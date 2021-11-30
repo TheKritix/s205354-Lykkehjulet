@@ -1,4 +1,4 @@
-package com.example.s205354_lykkehjulet
+package com.example.s205354_lykkehjulet.UI
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

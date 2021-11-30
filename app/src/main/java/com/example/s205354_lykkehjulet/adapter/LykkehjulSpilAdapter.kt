@@ -12,9 +12,10 @@ import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.s205354_lykkehjulet.LykkehjulSpilDirections
+//import com.example.s205354_lykkehjulet.LykkehjulSpilDirections
 import com.example.s205354_lykkehjulet.R
-import com.example.s205354_lykkehjulet.SpilController
+import com.example.s205354_lykkehjulet.Game.SpilController
+import com.example.s205354_lykkehjulet.UI.LykkehjulSpilDirections
 import kotlinx.coroutines.*
 
 /**

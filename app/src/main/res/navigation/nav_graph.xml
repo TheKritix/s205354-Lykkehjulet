@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/start"
-        android:name="com.example.s205354_lykkehjulet.Start"
+        android:name="com.example.s205354_lykkehjulet.UI.Start"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/regler"
-        android:name="com.example.s205354_lykkehjulet.Regler"
+        android:name="com.example.s205354_lykkehjulet.UI.Regler"
         android:label="fragment_regler"
         tools:layout="@layout/fragment_regler" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/lykkehjulSpil"
-        android:name="com.example.s205354_lykkehjulet.LykkehjulSpil"
+        android:name="com.example.s205354_lykkehjulet.UI.LykkehjulSpil"
         android:label="fragment_lykkehjul_spil"
         tools:layout="@layout/fragment_lykkehjul_spil" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/spilVundet"
-        android:name="com.example.s205354_lykkehjulet.spilVundet"
+        android:name="com.example.s205354_lykkehjulet.UI.SpilVundet"
         android:label="fragment_spil_vundet"
         tools:layout="@layout/fragment_spil_vundet" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/spilTabt"
-        android:name="com.example.s205354_lykkehjulet.spilTabt"
+        android:name="com.example.s205354_lykkehjulet.UI.SpilTabt"
         android:label="fragment_spil_tabt"
         tools:layout="@layout/fragment_spil_tabt" >
         <action

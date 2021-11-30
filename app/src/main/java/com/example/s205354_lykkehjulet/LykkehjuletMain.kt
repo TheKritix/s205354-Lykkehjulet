@@ -7,7 +7,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.s205354_lykkehjulet.databinding.ActivityMainBinding
 
-
 /**
  *
  * Dette projekt er kodet af Kristoffer T. Pedersen (s205354)

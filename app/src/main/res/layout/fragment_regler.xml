@@ -9,7 +9,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintHorizontal_bias="0.5"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".Regler">
+    tools:context=".UI.Regler">
 
 
     <TextView

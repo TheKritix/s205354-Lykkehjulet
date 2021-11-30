@@ -1,4 +1,4 @@
-package com.example.s205354_lykkehjulet
+package com.example.s205354_lykkehjulet.UI
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,7 @@ import com.example.s205354_lykkehjulet.databinding.FragmentSpilTabtBinding
  * Fragment til når man taber
  */
 
-class spilTabt : Fragment() {
+class SpilTabt : Fragment() {
 
     private var _binding: FragmentSpilTabtBinding? = null
 
@@ -33,7 +33,7 @@ class spilTabt : Fragment() {
 
         binding.spilIgenKnap.setOnClickListener {
             Navigation.findNavController(it)
-                .navigate(spilTabtDirections.actionSpilTabtToLykkehjulSpil())
+                .navigate(SpilTabtDirections.actionSpilTabtToLykkehjulSpil())
         }
     }
 }

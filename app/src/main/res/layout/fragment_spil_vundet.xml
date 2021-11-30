@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/vinder_backdrop"
-    tools:context=".spilVundet">
+    tools:context=".UI.SpilVundet">
 
     <!-- TODO: Update blank fragment layout -->
 

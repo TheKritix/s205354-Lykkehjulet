@@ -1,7 +1,7 @@
-package com.example.s205354_lykkehjulet
+package com.example.s205354_lykkehjulet.Game
 
 import android.content.Context
-import java.lang.Exception
+import com.example.s205354_lykkehjulet.R
 import java.lang.StringBuilder
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animationCache="false"
     android:background="#C0CEDC"
-    tools:context=".Start">
+    tools:context=".UI.Start">
 
     <!-- Kilde til billede https://www.flaticon.com/free-icon/wheel-of-fortune_2006249 -->
     <ImageView
