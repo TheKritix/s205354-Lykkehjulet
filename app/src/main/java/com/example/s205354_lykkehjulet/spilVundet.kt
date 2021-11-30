@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.s205354_lykkehjulet.databinding.FragmentSpilVundetBinding
 
+/**
+ * Fragment til når man vinder
+ */
+
 class spilVundet : Fragment() {
 
     private var _binding: FragmentSpilVundetBinding? = null
@@ -17,7 +21,7 @@ class spilVundet : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentSpilVundetBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -27,8 +31,9 @@ class spilVundet : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.spilIgenKnap.setOnClickListener{
-            Navigation.findNavController(it).navigate(spilVundetDirections.actionSpilVundetToLykkehjulSpil())
+        binding.spilIgenKnap.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(spilVundetDirections.actionSpilVundetToLykkehjulSpil())
         }
     }
 }

@@ -13,6 +13,8 @@ import com.example.s205354_lykkehjulet.databinding.ActivityMainBinding
  * Dette projekt er kodet af Kristoffer T. Pedersen (s205354)
  * @author Kristoffer T. Pedersen s205354
  *
+ * Ved første start husk at rebuild project, så directions bliver oprettet.
+ *
  * Kilder:
  *
  * ** Kilder til Fragments:
@@ -35,7 +37,7 @@ class LykkehjuletMain : AppCompatActivity() {
         //specifik kilde: https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component#7
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         setupActionBar(navController)
 
@@ -47,6 +49,7 @@ class LykkehjuletMain : AppCompatActivity() {
     private fun setupActionBar(navController: NavController) {
         NavigationUI.setupActionBarWithNavController(this, navController)
     }
+
     //Gør så man kan trykke tilbage på topbaren, hvis man ønsker den implementeret i en given fragment
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()

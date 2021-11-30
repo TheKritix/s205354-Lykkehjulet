@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.s205354_lykkehjulet.databinding.FragmentSpilTabtBinding
 
+/**
+ * Fragment til når man taber
+ */
+
 class spilTabt : Fragment() {
 
     private var _binding: FragmentSpilTabtBinding? = null
@@ -17,7 +21,7 @@ class spilTabt : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentSpilTabtBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -27,8 +31,9 @@ class spilTabt : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.spilIgenKnap.setOnClickListener{
-            Navigation.findNavController(it).navigate(spilTabtDirections.actionSpilTabtToLykkehjulSpil())
+        binding.spilIgenKnap.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(spilTabtDirections.actionSpilTabtToLykkehjulSpil())
         }
     }
 }

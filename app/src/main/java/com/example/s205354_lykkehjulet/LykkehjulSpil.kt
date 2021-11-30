@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s205354_lykkehjulet.databinding.FragmentLykkehjulSpilBinding
-import com.example.s205354_lykkehjulet.adapter.ItemAdapter
+import com.example.s205354_lykkehjulet.adapter.LykkehjulSpilAdapter
 
 /**
  * @Source https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-recyclerview-scrollable-list#3
@@ -17,7 +17,7 @@ import com.example.s205354_lykkehjulet.adapter.ItemAdapter
  */
 class LykkehjulSpil : Fragment() {
 
-    private var _binding: FragmentLykkehjulSpilBinding? = null;
+    private var _binding: FragmentLykkehjulSpilBinding? = null
 
     private val binding get() = _binding!!
 
@@ -31,7 +31,7 @@ class LykkehjulSpil : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View?{
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLykkehjulSpilBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -42,12 +42,12 @@ class LykkehjulSpil : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //Vi bruger en liste med 2 tal, så vi kan skifte mellem vores views i RecyclerViewet ud fra position.
-        val positionList = listOf(1,2)
+        val positionList = listOf(1, 2)
 
         recyclerView = binding.LykkehjulRecycler
         recyclerView.apply {
-           recyclerView.layoutManager = LinearLayoutManager(context)
-           recyclerView.adapter = ItemAdapter(positionList, recyclerView)
+            recyclerView.layoutManager = LinearLayoutManager(context)
+            recyclerView.adapter = LykkehjulSpilAdapter(positionList, recyclerView)
         }
     }
 }

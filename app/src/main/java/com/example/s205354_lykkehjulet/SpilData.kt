@@ -21,15 +21,16 @@ class SpilData {
     fun ranTal(maks: Int): Int {
         val randomTal = Random()
 
-        return randomTal.nextInt((maks+ 1 )-1) + 1
+        return randomTal.nextInt((maks + 1) - 1) + 1
     }
+
     //Mulighederne på lykkehjulet
-    fun lykkehjul(num: Int): String{
+    fun lykkehjul(num: Int): String {
 
         tempSpillerPoint = 0
         var tempSpillerLiv = 0
 
-        when(num) {
+        when (num) {
             1 -> tempSpillerPoint = 800
             2 -> tempSpillerPoint = 500
             3 -> tempSpillerPoint = 650
@@ -58,16 +59,19 @@ class SpilData {
 
         skiftSpillerLiv(tempSpillerLiv)
 
-        if (tempSpillerLiv > 0) {return "Du fik " + tempSpillerLiv.toString() + " liv"}
-
-        else if (tempSpillerLiv < 0 ) {return "Du mistede " + tempSpillerLiv.toString() + " liv"}
-
-        else if (tempSpillerPoint == 0) {return "Du gik bankeråt"}
-
-        else  {return "Du ramte " + tempSpillerPoint.toString() + " point"}
+        if (tempSpillerLiv > 0) {
+            return "Du fik " + tempSpillerLiv.toString() + " liv"
+        } else if (tempSpillerLiv < 0) {
+            return "Du mistede " + tempSpillerLiv.toString() + " liv"
+        } else if (tempSpillerPoint == 0) {
+            return "Du gik bankeråt"
+        } else {
+            return "Du ramte " + tempSpillerPoint.toString() + " point"
+        }
 
     }
-    fun increaseSpillerPoint(){
+
+    fun increaseSpillerPoint() {
 
         spillerPoint = spillerPoint + tempSpillerPoint
     }

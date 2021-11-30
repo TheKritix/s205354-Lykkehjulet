@@ -17,7 +17,7 @@ import com.example.s205354_lykkehjulet.databinding.FragmentReglerBinding
 
 class Regler : Fragment() {
 
-    private var _binding: FragmentReglerBinding? = null;
+    private var _binding: FragmentReglerBinding? = null
 
     private val binding get() = _binding!!
 
@@ -27,7 +27,7 @@ class Regler : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentReglerBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -64,8 +64,9 @@ class Regler : Fragment() {
         binding.reglerBTN.setBackgroundResource(R.drawable.gradient_knap_graa)
 
         //Forsæt knap videre til næste fragment.
-        binding.reglerBTN.setOnClickListener{
-            Navigation.findNavController(it).navigate(ReglerDirections.actionReglerToLykkehjulSpil())
+        binding.reglerBTN.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(ReglerDirections.actionReglerToLykkehjulSpil())
         }
     }
 }
