@@ -19,6 +19,9 @@ import com.example.s205354_lykkehjulet.databinding.ActivityMainBinding
  * ** Kilder til Fragments:
  * @Source https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component#10
  * @Source https://youtu.be/Q2HY58s9cHs
+ * ** Kilde til top bar håndtering:
+ * @Source https://stackoverflow.com/questions/36236181/how-to-remove-title-bar-from-the-android-activity
+ * @Source https://developer.android.com/guide/navigation/navigation-ui
  */
 
 class LykkehjuletMain : AppCompatActivity() {
@@ -40,7 +43,7 @@ class LykkehjuletMain : AppCompatActivity() {
 
         setupActionBar(navController)
 
-        //Fjener top bar
+        //Fjener top bar - https://stackoverflow.com/questions/36236181/how-to-remove-title-bar-from-the-android-activity
         supportActionBar?.hide()
     }
 
@@ -50,6 +53,7 @@ class LykkehjuletMain : AppCompatActivity() {
     }
 
     //Gør så man kan trykke tilbage på topbaren, hvis man ønsker den implementeret i en given fragment
+    //Kilde: https://developer.android.com/guide/navigation/navigation-ui
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
