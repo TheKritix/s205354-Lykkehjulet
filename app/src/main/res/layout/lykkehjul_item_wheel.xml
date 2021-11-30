@@ -60,6 +60,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/hp_placeholder"
         android:textColor="#455A64"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,6 +72,7 @@
         android:layout_marginEnd="24dp"
         android:text="@string/point_placeholder"
         android:textColor="#455A64"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,9 +83,9 @@
         android:layout_marginTop="16dp"
         android:text="@string/placeholder"
         android:textColor="#455A64"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
