@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dyr">
+        <item>ged</item>
+        <item>giraf</item>
+        <item>hest</item>
+        <item>myre</item>
+        <item>hund</item>
+        <item>humlebi</item>
+    </string-array>
+</resources>

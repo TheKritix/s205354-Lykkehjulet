@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://www.11zon.com/zon/android/how-to-change-android-edittext-cursor-color.php -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:width="2dp"/>
+    <solid android:color="#103357"/>
+</shape>

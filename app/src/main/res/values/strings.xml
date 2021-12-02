@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">S205354 - Lykkehjulet</string>
+    <string name="hello_blank_fragment">Dette er en test</string>
+    <string name="start">Velkommen til Lykkehjulet</string>
+    <string name="startBTN">Start</string>
+    <string name="authorTag">Af Kristoffer Pedersen (s205354)</string>
+
+    <!-- Regler -->
+
+    <string name="regelHeader">Regler</string>
+    <string name="regel1">1. Kun 1 spiller kan spille ad gangen.</string>
+    <string name="regel2">2. Du som spiller skal gætte et ord ud fra nogle valgte bogstaver.</string>
+    <string name="regel3">3. Ordet er gemt og bogstaver bliver først vist når der bliver gættet et rigtigt bogstav.</string>
+    <string name="regel4">4. Spilleren drejer på hjulet hvor du enten får nogle point, en ekstra tur, en misset tur eller at gå bank.</string>
+    <string name="regel5">5. Hvis du får point, altså et tal, derpå skal du vælge et bogstav. Hvis du gætter et rigtigt bogstav, så får du de point.</string>
+    <string name="regel6">6. Hvis du får en "ekstra tur", så får du et ekstra liv.</string>
+    <string name="regel7">7. Hvis hjulet lander på "mist tur", så mister du et liv.</string>
+    <string name="regel8">8. Hvis hjulet lander på "bankerot", så mister du alle din pointer.</string>
+    <string name="regel9">9. Hjulet bliver drejet indtil der findes en vinder.</string>
+    <string name="regel10">10. Spillet er vundet når alle bogstaver er fundet, eller også så taber man hvis man mister alle ens liv.</string>
+    <string name="regel11">11. Man starter med 5 liv.</string>
+
+    <string name="confirm">Forstået</string>
+
+    <!-- Diverse -->
+
+    <string name="spilIgen">Spil igen</string>
+    <string name="vinder">DU VANDT!</string>
+    <string name="taber">DU TABTE! :(</string>
+    <string name="bogstavHint">Bogstav</string>
+    <string name="hp_placeholder">hp:placeholder</string>
+    <string name="spin_hjullet">Spin Hjullet</string>
+    <string name="placeholder">//PLACEHOLDER//</string>
+    <string name="point_placeholder">point:placeholder</string>
+    <string name="ordplaceholder">ordPlaceholder</string>
+    <string name="gætKnapIndhold">Gæt</string>
 </resources>

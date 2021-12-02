@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="blomster">
+        <item>rose</item>
+        <item>tulipan</item>
+        <item>solsikke</item>
+        <item>julestjerne</item>
+        <item>azalia</item>
+        <item>hyacint</item>
+    </string-array>
+</resources>

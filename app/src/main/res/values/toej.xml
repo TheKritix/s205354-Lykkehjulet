@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="toej">
+        <item>handske</item>
+        <item>bluse</item>
+        <item>bukser</item>
+        <item>hat</item>
+        <item>kasket</item>
+        <item>sokker</item>
+    </string-array>
+</resources>

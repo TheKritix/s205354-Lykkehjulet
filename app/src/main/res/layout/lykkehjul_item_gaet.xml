@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--
+ https://stackoverflow.com/questions/2361497/how-to-create-edittext-accepts-alphabets-only-in-android/35954993
+ -->
+
+    <TextView
+        android:id="@+id/ordGuess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="36dp"
+        android:text="@string/ordplaceholder"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/gaetBackdrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/gaetBackdrop"
+        android:layout_width="235dp"
+        android:layout_height="73dp"
+        android:layout_marginBottom="20dp"
+        android:background="#9BB7E3"
+        app:layout_constraintBottom_toTopOf="@+id/gætKnap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/gætKnap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
+        android:background="@drawable/gradient_knap_blaa"
+        android:fontFamily="@font/scope_one"
+        android:text="@string/gætKnapIndhold"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/gætTekstFelt"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#103357"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:ems="10"
+        android:hint="@string/bogstavHint"
+        android:inputType="textPersonName"
+        android:maxLength="1"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        android:textCursorDrawable="@drawable/cursor_blaa"
+        app:layout_constraintBottom_toBottomOf="@+id/gaetBackdrop"
+        app:layout_constraintEnd_toEndOf="@+id/gaetBackdrop"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="@+id/gaetBackdrop"
+        app:layout_constraintTop_toTopOf="@+id/gaetBackdrop"
+        app:layout_constraintVertical_bias="0.56" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
