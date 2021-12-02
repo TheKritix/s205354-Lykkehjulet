@@ -105,7 +105,6 @@ class LykkehjulSpilAdapter(private var list: List<Int>, recyclerView: RecyclerVi
             holderGaetView = holderGaet
 
             //Sætter knappen til grå og sørger for at man ikke kan trykke på den før at man har trykket på hjulet.
-
             holderGaet.gaetKnap.setBackgroundResource(R.drawable.gradient_knap_graa)
             holderGaet.gaetKnap.isEnabled = false
 

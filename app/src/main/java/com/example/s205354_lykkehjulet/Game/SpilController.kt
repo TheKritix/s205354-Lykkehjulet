@@ -7,6 +7,7 @@ import java.lang.StringBuilder
 
 /**
  * @Source https://www.w3schools.com/java/ref_string_indexof.asp
+ * @Source https://www.geeksforgeeks.org/stringbuilder-setcharat-in-java-with-examples/
  */
 
 class SpilController {
@@ -72,6 +73,7 @@ class SpilController {
     }
 
     //@source:  https://www.w3schools.com/java/ref_string_indexof.asp
+    //@source: https://www.geeksforgeeks.org/stringbuilder-setcharat-in-java-with-examples/
     fun tjekBogstav(ord: String, gemtOrd: String, bogstav: Char): String {
 
         var gemtOrdTemp = gemtOrd
