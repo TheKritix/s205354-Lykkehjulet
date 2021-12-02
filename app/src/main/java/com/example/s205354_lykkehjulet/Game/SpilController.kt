@@ -56,7 +56,6 @@ class SpilController {
                 return ord[spiller.ranTal(ord.size - 1)]
             }
         }
-
         return ""
     }
 
